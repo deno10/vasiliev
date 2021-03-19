@@ -1,12 +1,20 @@
-* {margin: 0;}
+* {margin: 0; padding: 0;}
+body {
+	color: #262626;
+	font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+	font-size: 14px;
+	line-height: 10px;
+}
+
+a, a:visited {
+	text-decoration: none;
+}
+
 @media (min-width: 736px) {
 	div.main {
 		box-sizing: content-box;
 		width: calc(100% - 40px);
-		max-width: 935px;
 		padding: 30px 20px 0;
-		margin-bottom: 0;
-		margin: 0 auto 30px;
 	}
 	div.header {
 		margin-bottom: 44px;
@@ -14,23 +22,46 @@
 	div.avatar {
 		flex-basis: 0;
 		flex-grow: 1;
+		-webkit-box-flex: 1;
 		margin-right: 30px;
 	}
-	
+	div.header_content {
+		flex-basis: 30px;
+		flex-grow: 2;
+	}
+	div.header_account {
+		margin-bottom: 20px;
+	}
+	div.header_description {
+		font-size: 16px;
+		line-height: 24px;
+		word-wrap: break-word;
+	}
 }
 
 div.main {
+	margin-bottom: 0;
+	margin: 0 auto 30px;
 	display: flex;
+	flex-grow: 1;
+	flex-direction: column;
+	flex-shrink: 0;
+	max-width: 935px;
+	position: relative;
 }
 
 div.header {
 	display: flex;
 	flex-direction: row;
+	flex-shrink: 0;
+	position: relative;
 }
 
 div.avatar {
 	display: flex;
+	flex-direction: column;
 	flex-shrink: 0;
+	position: relative;
 }
 
 div.avatar_inner {
@@ -38,6 +69,7 @@ div.avatar_inner {
 	display: block;
 	align-self: center;
 	flex: none;
+	position: relative;
 }
 
 .avatar_span {
@@ -50,4 +82,78 @@ div.avatar_inner {
 .avatar_image {
 	height: 100%;
 	width: 100%;
+}
+
+div.header_content {
+	display: flex;
+	flex-direction: column;
+	margin: 0;
+	padding: 0;
+	position: relative;
+}
+
+div.header_account {
+	display: flex;
+	align-items: center;
+	flex-direction: row;
+	flex-shrink: 0;
+	min-width: 0;
+	position: relative;
+}
+
+.header_account_name {
+	display: block;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	color: #262626;
+	font-weight: 300;
+	font-size: 28px;
+	line-height: 32px;
+	margin: -5px 0 -6px;
+}
+
+.header_numbers {
+	margin-bottom: 20px;
+	display: flex;
+	flex-direction: row;
+	list-style: none;
+}
+
+.header_number {
+	margin-left: 0;
+	margin-right: 40px;
+	font-size: 16px;
+}
+
+.header_number_number {
+	font-weight: 600;
+}
+
+div.header_description {
+	display: block;
+	position: relative;
+}
+
+.header_description_title {
+	display: inline;
+	font: inherit;
+	font-weight: 600;
+}
+
+.header_description_followers {
+	font-weight: 500;
+}
+
+.header_description_followers_inner {
+	color: #8e8e8e;
+	display: block;
+	font-size: 12px;
+	line-height: 14px;
+	margin-top: 14px;
+}
+
+.header_description_followers_follower {
+	color: #262626;
+	font-weight: 500;
 }

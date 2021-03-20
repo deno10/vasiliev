@@ -272,3 +272,38 @@ div.stories_story_name {
 	width: 100%;
 	position: relative;
 }
+
+div.nav {
+	align-items: center;
+	border-top: 1px solid #dbdbdb;
+	color: #8e8e8e;
+	display: flex;
+	flex-direction: row;
+	font-size: 12px;
+	font-weight: 600;
+	justify-content: center;
+	letter-spacing: 1px;
+	text-align: center;
+	position: relative;
+}
+
+.nav_item, .nav_item:visited {
+	align-items: center;
+	color: #bebebe;
+	cursor: pointer;
+	display: flex;
+	flex-direction: row;
+	height: 52px;
+	justify-content: center;
+	text-transform: uppercase;
+}
+
+.nav_item:not(:last-child) {
+	margin-right: 60px;
+}
+
+.nav_selected, .nav_selected:visited {
+	border-top: 1px solid #262626;
+	margin-top: -1px;
+	color: #262626;
+}

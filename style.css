@@ -356,6 +356,10 @@ div.posts_row > * {
 	-webkit-flex: 1 0 0%;
 }
 
+div.posts_row:last-child {
+	margin-bottom: 0;
+}
+
 div.post_outer {
 	flex: 1 0 0%;
 	display: block;

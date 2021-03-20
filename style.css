@@ -11,7 +11,7 @@ a, a:visited {
 }
 
 @media (min-width: 736px) {
-	div.main {
+	div.content {
 		box-sizing: content-box;
 		width: calc(100% - 40px);
 		padding: 30px 20px 0;
@@ -61,9 +61,41 @@ a, a:visited {
 	div.post_outer {
 		margin-right: 28px;
 	}
+	
+	/*post.html*/
+	div.bigpost_content {
+		justify-content: normal;
+		padding: 4vh 20px 0;
+		box-sizing: content-box;
+		width: calc(100%-40px);
+	}
+	div.bigpost_outer {
+		align-items: center;
+		margin: 0 auto;
+		width: 100%;
+	}
+	.bigpost {
+		background-color: #ffffff;
+		border: 1px solid #dbdbdb;
+		border-bottom-right-radius: 3px;
+		border-top-right-radius: 3px;
+	}
 }
 
 div.main {
+	background-color: #fafafa;
+	flex-grow: 1;
+	-webkit-box-ordinal-group: 5;
+	order: 4;
+	align-items: stretch;
+	box-sizing: border-box;
+	display: flex;
+	flex-direction: column;
+	flex-shrink: 0;
+	position: relative;
+}
+
+div.content {
 	margin-bottom: 0;
 	margin: 0 auto 30px;
 	display: flex;
@@ -516,4 +548,173 @@ div.nav_up_icon_outer:not(:first-child) {
 	display: block;
 	position: relative;
 	white-space: nowrap;
+}
+
+/*post.html*/
+div.bigpost_content {
+	flex-grow: 1;
+	margin: 0 auto;
+	max-width: 935px;
+	margin-bottom: 16px;
+	align-items: stretch;
+	display: flex;
+	flex-direction: column;
+	flex-shrink: 0;
+	position: relative;
+}
+
+div.bigpost_outer {
+	display: flex;
+	flex-direction: column;
+	flex-shrink: 0;
+	position: relative;
+}
+
+.bigpost {
+	width: 100%;
+	padding: 0;
+	display: flex;
+	flex-direction: column;
+	flex-shrink: 0;
+	position: relative;
+}
+
+div.bigpost_account {
+	border-left: 1px solid #efefef;
+	height: 72px;
+	padding: 16px;
+	right: 0;
+	width: 335px;
+	border-bottom: 1px solid #efefef;
+	margin-right: 0;
+	position: absolute;
+	top: 0;
+	align-items: center;
+	flex-direction: row;
+	display: flex;
+	box-sizing: border-box;
+}
+
+div.bigpost_account_logo_outer {
+	display: block;
+	height: fit-content;
+	height: -moz-fit-content;
+	height: -webkit-fit-content;
+	width: fit-content;
+	width: -moz-fit-content;
+	width: -webkit-fit-content;
+	position: relative;
+	flex-shrink: 0;
+	box-sizing: border-box;
+}
+
+div.bigpost_account_logo {
+	display: block;
+	align-items: center;
+	flex: none;
+	position: relative;
+}
+
+a.bigpost_account_logo_inner, a.bigpost_account_logo_inner:visited {
+	width: 32px;
+	height: 32px;
+	cursor: pointer;
+	background-color: #fafafa;
+	border-radius: 50%;
+	box-sizing: border-box;
+	display: block;
+	overflow: hidden;
+	position: relative;
+}
+
+img.bigpost_account_logo_img {
+	height: 100%;
+	width: 100%;
+	vertical-align: baseline;
+}
+
+div.bigpost_account_name {
+	margin-left: 14px;
+	align-items: flex-start;
+	display: flex;
+	flex-grow: 1;
+	flex-shrink: 1;
+	overflow: hidden;
+	flex-direction: column;
+	position: relative;
+	box-sizing: border-box;
+}
+
+div.bigpost_account_name_inner {
+	max-width: 220px;
+	align-items: baseline;
+	flex-direction: row;
+	display: flex;
+	flex-shrink: 0;
+	position: relative;
+	box-sizing: border-box;
+}
+
+div.bigpost_account_name_name {
+	align-items: center;
+	flex-direction: row;
+	flex-grow: 1;
+	flex-shrink: 1;
+	max-width: 100%;
+	overflow: hidden;
+	padding: 2px;
+	top: 1px;
+	display: flex;
+	position: relative;
+	box-sizing: border-box;
+}
+
+a.bigpost_account_name_link, a.bigpost_account_name_link:visited {
+	color: #262626;
+	border: 0;
+	display: inline;
+	position: relative;
+	background-color: transparent;
+	user-select: auto;
+	appearance: none;
+	cursor: pointer;
+	font-weight: 600;
+	text-align: center;
+	text-transform: inherit;
+	box-sizing: border-box;
+}
+
+div.bigpost_account_name_following {
+	align-items: baseline;
+	flex-direction: row;
+	box-sizing: border-box;
+	display: flex;
+	flex-shrink: 0;
+	position: relative;
+}
+
+.bigpost_account_name_dot {
+	display: inline;
+	color: #262626;
+	margin-left: 4px;
+	margin-right: 4px;
+}
+
+div.bigpost_account_name_following_inner {
+	color: #262626;
+	border: 0;
+	display: inline;
+	padding: 0;
+	position: relative;
+	background-color: transparent;
+	appearance: none;
+	box-sizing: border-box;
+	cursor: pointer;
+	font-weight: 600;
+	text-align: center;
+	text-transform: inherit;
+	user-select: none;
+	width: auto;
+	font-size: 14px;
+	line-height: 18px;
 }

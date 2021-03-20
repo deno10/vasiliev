@@ -55,6 +55,12 @@ a, a:visited {
 		width: 77px;
 		height: 77px;
 	}
+	div.posts_row {
+		margin-bottom: 28px;
+	}
+	div.post_outer {
+		margin-right: 28px;
+	}
 }
 
 div.main {
@@ -306,4 +312,81 @@ div.nav {
 	border-top: 1px solid #262626;
 	margin-top: -1px;
 	color: #262626;
+}
+
+div.posts {
+	align-items: stretch;
+	display: flex;
+	flex-direction: column;
+	flex-shrink: 0;
+	position: relative;
+}
+
+.posts_outer {
+	flex-grow: 1;
+	-webkit-box-flex: 1;
+	align-items: stretch;
+	display: flex;
+	flex-direction: column;
+	flex-shrink: 0;
+	position: relative;
+}
+
+div.posts_inner {
+	flex-direction: column;
+	padding-bottom: 0px;
+	padding-top: 0px;
+	align-items: stretch;
+	display: flex;
+	flex-shrink: 0;
+	position: relative;
+}
+
+div.posts_row {
+	flex-direction: row;
+	align-items: stretch;
+	display: flex;
+	flex-shrink: 0;
+	position: relative;
+}
+
+div.posts_row > * {
+	flex: 1 0 0%;
+	-webkit-box-flex: 1;
+	-webkit-flex: 1 0 0%;
+}
+
+div.post_outer {
+	flex: 1 0 0%;
+	display: block;
+	position: relative;
+	width: 100%;
+}
+
+div.post_outer:last-child {
+	margin-right: 0;
+}
+
+div.post {
+	background-color: #efefef;
+	display: block;
+	width: 100%;
+	position: relative;
+}
+
+div.post_inner {
+	display: block;
+	overflow: hidden;
+	padding-bottom: 100%;
+	position: relative;
+}
+
+img.post_img {
+	object-fit: cover;
+	height: 100%;
+	left: 0;
+	top: 0;
+	position: absolute;
+	user-select: none;
+	width: 100%;
 }

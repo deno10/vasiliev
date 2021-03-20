@@ -394,3 +394,126 @@ img.post_img {
 	user-select: none;
 	width: 100%;
 }
+
+div.nav_up {
+	-webkit-box-ordinal-group: 1;
+	order: 0;
+	background-color: #fafafa;
+	padding: 0;
+	align-items: stretch;
+	display: flex;
+	flex-direction: column;
+	flex-shrink: 0;
+	position: relative;
+}
+
+div.nav_up_filler {
+	flex-basis: 54px;
+	align-items: stretch;
+	display: flex;
+	flex-direction: column;
+	flex-shrink: 0;
+	position: relative;
+}
+
+div.nav_up_inner {
+	align-items: center;
+	height: 54px;
+	background-color: #ffffff;
+	border-bottom: 1px solid #dbdbdb;
+	position: fixed;
+	top: 0;
+	width: 100%;
+	z-index: 3;
+	display: flex;
+	flex-direction: column;
+}
+
+div.nav_up_content {
+	height: 54px;
+	padding: 0 20px;
+	align-items: center;
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	max-width: 975px;
+	width: 100%;
+	position: relative;
+	box-sizing: border-box;
+}
+
+div.nav_up_logo {
+	flex: 1 9999 0%;
+	min-width: 40px;
+	align-items: stretch;
+	display: flex;
+	flex-direction: column;
+	position: relative;
+}
+
+div.nav_up_logo_wrapper {
+	flex: 0 0 auto;
+	-webkit-box-flex: 0;
+	justify-content: flex-start;
+	-webkit-box-pack: start;
+	flex-direction: row;
+	align-items: center;
+	align-content: stretch;
+	display: flex;
+	position: relative;
+}
+
+div.nav_up_logo_inner {
+	margin-top: 7px;
+	align-items: stretch;
+	display: flex;
+	flex-direction: column;
+	flex-shrink: 0;
+	position: relative;
+}
+
+img.nav_up_logo_img {
+	max-height: 100%;
+	max-width: 100%;
+	object-fit: contain;
+}
+
+div.nav_up_icons {
+	align-content: center;
+	align-items: center;
+	display: flex;
+	flex: 1 0 0%;
+	flex-direction: row;
+	flex-wrap: wrap;
+	justify-content: flex-end;
+	-webkit-box-pack: end;
+	position: relative;
+}
+
+div.nav_up_icons_inner {
+	display: flex;
+	flex-direction: row;
+	padding-left: 24px;
+	white-space: nowrap;
+	align-items: stretch;
+	flex-shrink: 0;
+	position: relative;
+}
+
+div.nav_up_icon_outer {
+	align-items: stretch;
+	display: flex;
+	flex-direction: column;
+	flex-shrink: 0;
+	position: relative;
+}
+
+div.nav_up_icon_outer:not(:first-child) {
+	margin-left: 22px;
+}
+
+.nav_up_icon_svg {
+	display: block;
+	position: relative;
+	white-space: nowrap;
+}

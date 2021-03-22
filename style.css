@@ -817,7 +817,7 @@ div.bigpost_descr_description {
 	overflow-y: scroll;
 	padding: 16px 12px;
 	position: absolute;
-	width: calc (100% - 8px);
+	width: calc(100% - 8px);
 	list-style: none;
 }
 

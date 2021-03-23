@@ -132,3 +132,229 @@ div.story_inner {
 	box-sizing: border-box;
 	flex-shrink: 0;
 }
+
+div.story_video_wrapper {
+	align-items: center;
+	height: 100%;
+	justify-content: center;
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	box-sizing: border-box;
+	display: flex;
+	flex-direction: column;
+}
+
+div.story_video_outer {
+	border-radius: 8px;
+	align-items: center;
+	display: flex;
+	height: 100%;
+	justify-content: center;
+	overflow: hidden;
+	width: 100%;
+	box-sizing: border-box;
+	flex-direction: column;
+	flex-shrink: 0;
+	position: relative;
+}
+
+div.story_video_inner {
+	width: 100%;
+	height: 100%; /*ВОЗМОЖНО В JS*/
+	display: block;
+	flex: none;
+	position: relative;
+	box-sizing: border-box;
+}
+
+img.story_video_image {
+	display: block;
+	height: 100%;
+	left: 0;
+	position: absolute;
+	top: 0;
+	width: 100%;
+}
+
+video.story_video {
+	object-fit: cover;
+	display: block;
+	height: 100%;
+	width: 100%;
+	left: 0;
+	top: 0;
+	position: absolute;
+}
+
+div.story_header {
+	background: linear-gradient(180deg,rgba(38,38,38,.8) 0%,rgba(38,38,38,0) 100%);
+	display: flex;
+	padding: 20px 16px 32px;
+	position: absolute;
+	top: 0;
+	width: 100%;
+	align-items: stretch;
+	box-sizing: border-box;
+	flex-direction: column;
+}
+
+div.story_header_bar {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	margin-bottom: 8px;
+	align-items: stretch;
+	box-sizing: border-box;
+	flex-shrink: 0;
+	position: relative;
+}
+
+div.story_header_bar_part {
+	flex-grow: 1;
+	height: 2px;
+	position: relative;
+	margin-right: 2px;
+	align-items: stretch;
+	box-sizing: border-box;
+	display: flex;
+	flex-direction: column;
+	flex-shrink: 0;
+}
+
+div.story_header_bar_part_grey {
+	background: rgba(255,255,255,.35);
+	border-radius: 2px;
+	height: 2px;
+	position: absolute;
+	top: 0;
+	width: 100%;
+	align-items: stretch;
+	box-sizing: border-box;
+	display: flex;
+	flex-direction: column;
+}
+
+div.story_header_bar_part_white {
+	background: #fff;
+	border-radius: 2px;
+	height: 2px;
+	position: absolute;
+	top: 0;
+	width: 100%;
+	align-items: stretch;
+	box-sizing: border-box;
+	display: flex;
+	flex-direction: column;
+}
+
+div.story_header_bar_part_current {
+	transition: width .1s linear;
+	will-change: width;
+}
+
+div.story_header_content {
+	flex: 0 0 auto;
+	justify-content: space-between;
+	flex-direction: row;
+	align-items: center;
+	align-content: stretch;
+	box-sizing: border-box;
+	display: flex;
+	position: relative;
+}
+
+div.story_header_content_account {
+	align-items: center;
+	color: #fff;
+	font-size: 14px;
+	font-weight: 400;
+	line-height: 18px;
+	box-sizing: border-box;
+	display: flex;
+	flex-direction: column;
+	flex-shrink: 0;
+	position: relative;
+}
+
+div.story_header_content_account_wrapper {
+	align-items: center;
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	box-sizing: border-box;
+	flex-shrink: 0;
+	position: relative;
+}
+
+a.story_header_content_account_link, a.story_header_content_account_link:visited {
+	width: 32px;
+	height: 32px;
+	color: #00376b;
+	cursor: pointer;
+	background-color: #fafafa;
+	border-radius: 50%;
+	box-sizing: border-box;
+	display: block;
+	flex: 0 0 auto;
+	overflow: hidden;
+	position: relative;
+}
+
+img.story_header_content_account_img {
+	height: 100%;
+	width: 100%;
+}
+
+div.story_header_content_account_name {
+	margin-left: 8px;
+	flex: 0 0 auto;
+	justify-content: flex-start;
+	align-items: flex-start;
+	align-content: stretch;
+	box-sizing: border-box;
+	display: flex;
+	flex-direction: column;
+	position: relative;
+}
+
+div.story_header_content_account_name_wrapper {
+	flex: 0 0 auto;
+	justify-content: flex-start;
+	flex-direction: row;
+	align-items: flex-start;
+	align-content: stretch;
+	box-sizing: border-box;
+	display: flex;
+	position: relative;
+}
+
+div.story_header_content_account_name_inner {
+	padding-right: 10px;
+	align-items: center;
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	box-sizing: border-box;
+	flex-shrink: 0;
+	position: relative;
+}
+
+a.story_header_content_account_name_link, a.story_header_content_account_name_link:visited {
+	color: #fff !important;
+	font-weight: 600;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	padding-left: 5px;
+	margin-left: -5px;
+}
+
+.story_header_content_account_name_date {
+	font-size: 15px;
+	line-height: 18px;
+	font-weight: 400;
+	opacity: .6;
+	color: #fff;
+}

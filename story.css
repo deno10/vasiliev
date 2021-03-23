@@ -396,3 +396,61 @@ svg.story_header_content_icons_play_svg, svg.story_header_content_icons_sound_sv
 	display: block;
 	position: relative;
 }
+
+.story_button_left {
+	left: -58px;
+	display: block;
+	margin: 16px;
+	margin-top: -13px;
+	opacity: .2;
+	position: absolute;
+	top: 50%;
+	transition: opacity .1s ease-in;
+	background: 0 0;
+	border: 0;
+	cursor: pointer;
+	padding: 0;
+	line-height: 18px;
+}
+
+div.story_button_left_inner {
+	background-position: -130px -98px;
+	height: 30px;
+	width: 30px;
+	background-repeat: no-repeat;
+	background-image: url('images/sprites.png');
+	align-items: stretch;
+	box-sizing: border-box;
+	display: flex;
+	flex-direction: column;
+	position: relative;
+}
+
+.story_button_right {
+	right: -58px;
+	display: block;
+	margin: 16px;
+	margin-top: -13px;
+	opacity: .2;
+	position: absolute;
+	top: 50%;
+	transition: opacity .1s ease-in;
+	background: 0 0;
+	border: 0;
+	cursor: pointer;
+	padding: 0;
+	line-height: 18px;
+}
+
+div.story_button_right_inner {
+	background-position: -162px -98px;
+	height: 30px;
+	width: 30px;
+	background-repeat: no-repeat;
+	background-image: url('images/sprites.png');
+	align-items: stretch;
+	box-sizing: border-box;
+	display: flex;
+	flex-direction: column;
+	position: relative;
+}

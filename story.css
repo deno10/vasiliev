@@ -250,7 +250,7 @@ div.story_header_bar_part_white {
 }
 
 div.story_header_bar_part_current {
-	transition: width .1s linear;
+	transition: width .25s linear;
 	will-change: width;
 }
 

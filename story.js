@@ -5,6 +5,12 @@ var svg_sound = '<path clip-rule="evenodd" d="M40.8 6.6c-.6-.6-1.6-.6-2.2 0L37.2
 var current = 1;
 
 function funonload() {
+	
+	var story_container = document.getElementsByClassName('story_container')[0];
+	storysize(story_container);
+	
+	window.addEventListener('resize', function(){storysize(story_container);}, false);
+	
 	var videoEl = document.getElementsByTagName('video')[0];
 	var playBtn = document.getElementsByClassName('story_header_content_icons_play')[0];
 	var playBtnSVG = document.getElementsByClassName('story_header_content_icons_play_svg')[0];
@@ -41,4 +47,11 @@ function mute(videoEl, muteBtnSVG) {
 function bartime(videoEl, storybar) {
 	var wdth = videoEl.currentTime / videoEl.duration;
 	storybar.style.width = (wdth * 100) + "%";
+}
+
+function storysize(container) {
+	var hght = window.innerHeight * 0.96;
+	var wdth = hght * 0.5625;
+	container.style.width = wdth + "px";
+	container.style.height = hght + "px";
 }

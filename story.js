@@ -17,11 +17,17 @@ function funonload() {
 	var muteBtn = document.getElementsByClassName('story_header_content_icons_sound_svg')[0];
 	var muteBtnSVG = document.getElementsByClassName('story_header_content_icons_sound_svg')[0];
 	
+	if (videoEl.muted == true) {
+		muteBtnSVG.innerHTML = svg_nosound;
+	}
+	
 	var storybar = document.getElementsByClassName('story_header_bar_part_current')[0];
 	
 	playBtn.addEventListener('click', function(){playpause(videoEl, playBtnSVG);}, false);
 	muteBtn.addEventListener('click', function(){mute(videoEl, muteBtnSVG);}, false);
 	videoEl.addEventListener('timeupdate', function(){bartime(videoEl, storybar);}, false);
+	videoEl.addEventListener('play', function(){playBtnSVG.innerHTML = svg_pause;}, false);
+	videoEl.addEventListener('ended', function(){playBtnSVG.innerHTML = svg_play;}, false);
 }
 
 function playpause(videoEl, playBtnSVG) {

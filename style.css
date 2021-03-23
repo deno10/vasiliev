@@ -955,3 +955,137 @@ a.bigpost_descr_description_text_account_link, a.bigpost_descr_description_text_
 	vertical-align: baseline;
 	word-wrap: break-word;
 }
+
+.bigpost_descr_icons {
+	padding-top: 4px;
+	padding-left: 16px;
+	padding-right: 16px;
+	margin: 0;
+	margin-top: 4px;
+	border-top: 1px solid #efefef;
+	order: 2;
+	flex-direction: row;
+	align-items: stretch;
+	box-sizing: border-box;
+	display: flex;
+	flex-shrink: 0;
+	position: relative;
+}
+
+span.bigpost_descr_icon_like {
+	display: inline-block;
+	margin-left: -8px;
+}
+
+.bigpost_descr_icon_like_button, .bigpost_descr_icon_comm_button, .bigpost_descr_icon_direct_button, .bigpost_descr_icon_save_button {
+	align-items: center;
+	background: 0 0;
+	border: 0;
+	cursor: pointer;
+	display: flex;
+	justify-content: center;
+	padding: 8px;
+}
+
+div.bigpost_descr_icon_like_wrapper, div.bigpost_descr_icon_comm_wrapper, div.bigpost_descr_icon_direct_wrapper {
+	align-items: center;
+	justify-content: center;
+	box-sizing: border-box;
+	display: flex;
+	flex-direction: column;
+	flex-shrink: 0;
+	position: relative;
+}
+
+svg.bigpost_descr_icon_like_svg, svg.bigpost_descr_icon_comm_svg, svg.bigpost_descr_icon_direct_svg, svg.bigpost_descr_icon_save_svg {
+	display: block;
+	position: relative;
+}
+
+span.bigpost_descr_icon_comm, span.bigpost_descr_icon_direct {
+	display: inline-block;
+}
+
+span.bigpost_descr_icon_save {
+	margin-left: auto;
+	margin-right: -10px;
+	display: inline-block;
+}
+
+.bigpost_descr_liked {
+	padding-left: 16px;
+	padding-right: 16px;
+	margin-bottom: 4px;
+	order: 3;
+	flex-direction: row;
+	-webkit-justify-content: flex-end;
+	justify-content: flex-end;
+	align-items: stretch;
+	box-sizing: border-box;
+	display: flex;
+	flex-shrink: 0;
+	position: relative;
+}
+
+div.bigpost_descr_liked_outer {
+	flex: 1 1 auto;
+	min-height: 0;
+	min-width: 0;
+	justify-content: flex-start;
+	flex-direction: row;
+	align-items: stretch;
+	align-content: stretch;
+	box-sizing: border-box;
+	display: flex;
+	position: relative;
+}
+
+div.bigpost_descr_liked_inner {
+	align-items: center;
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	flex: 1 1 auto;
+	justify-content: flex-start;
+	box-sizing: border-box;
+	position: relative;
+}
+
+.bigpost_descr_liked_account {
+	display: inline;
+	position: relative;
+	font: inherit;
+	white-space: pre;
+}
+
+a.bigpost_descr_liked_account_link, a.bigpost_descr_liked_account_link:visited {
+	color: #262626;
+	font-weight: 600;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	padding-left: 5px;
+	margin-left: -5px;
+}
+
+div.bigpost_descr_date {
+	padding-left: 16px;
+	margin-bottom: 10px; /*вместо блока комментариев*/
+	order: 4;
+	display: block;
+	box-sizing: border-box;
+	flex-shrink: 0;
+	position: relative;
+}
+
+a.bigpost_descr_date_outer, a.bigpost_descr_date_outer:visited {
+	text-transform: uppercase;
+	color: #8e8e8e;
+	margin-bottom: 5px;
+}
+
+.bigpost_descr_date_inner {
+	font-size: 10px;
+	line-height: 18px;
+	letter-spacing: .2px;
+}

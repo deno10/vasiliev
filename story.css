@@ -459,6 +459,10 @@ div.story_button_right_inner {
 	display: none;
 }
 
+.story_video_mobnavigation {
+	display: none;
+}
+
 @media (max-device-width: 812px) and (orientation: portrait) {
 	html, body {
 		height: 100vh;
@@ -502,7 +506,9 @@ div.story_button_right_inner {
 	
 	.story_header_content_icons_play,
 	.story_header_content_icons_sound_svg,
-	.story_closebutton	{
+	.story_closebutton,
+	.story_button_left,
+	.story_button_right {
 		display: none !important;
 	}
 	
@@ -530,5 +536,125 @@ div.story_button_right_inner {
 		height: 44px;
 		width: 44px;
 		display: block;
+	}
+	
+	div.story_video_mobnavigation {
+		overflow: hidden;
+		top: 0;
+		right: 0;
+		left: 0;
+		bottom: 0;
+		position: fixed;
+		justify-content: center;
+		align-items: center;
+		align-content: stretch;
+		box-sizing: border-box;
+		display: flex;
+		flex-direction: column;
+	}
+	
+	div.story_video_mobnavigation_outer {
+		position: absolute;
+		left: 0;
+		top: 0;
+		align-items: center;
+		display: flex;
+		flex-direction: column;
+		height: 100%;
+		width: 100%;
+		justify-content: center;
+		box-sizing: border-box;
+	}
+	
+	div.story_video_mobnavigation_inner {
+		align-items: center;
+		display: flex;
+		flex-direction: column;
+		height: 100%;
+		width: 100%;
+		justify-content: center;
+		box-sizing: border-box;
+		flex-shrink: 0;
+		position: relative;
+	}
+	
+	.story_video_mobnavigation_leftsmall {
+		left: 0;
+		width: 15%;
+		z-index: 10;
+		position: fixed;
+		top: 72px;
+		bottom: 72px;
+		will-change: transform;
+		transform: translateZ(0);
+		background-color: transparent;
+		border: 0;
+		outline: 0;
+	}
+	
+	.story_video_mobnavigation_left {
+		left: 0;
+		width: 20%;
+		height: 100%;
+		position: absolute;
+		background-color: transparent;
+		border: 0;
+		outline: 0;
+	}
+	
+	.story_video_mobnavigation_right {
+		right: 0;
+		width: 80%;
+		height: 100%;
+		position: absolute;
+		background-color: transparent;
+		border: 0;
+		outline: 0;
+	}
+	
+	.story_video_mobnavigation_rightsmall {
+		right: 0;
+		width: 15%;
+		z-index: 10;
+		position: fixed;
+		top: 72px;
+		bottom: 72px;
+		will-change: transform;
+		transform: translateZ(0);
+		background-color: transparent;
+		border: 0;
+		outline: 0;
+	}
+	
+	.story_video_mobnavigation_leftsmall, .story_video_mobnavigation_rightsmall {
+		display: none !important;
+	}
+	
+	div.story_video_mobnavigation_play_outer {
+		align-items: center;
+		bottom: 0;
+		justify-content: center;
+		left: 0;
+		pointer-events: none;
+		position: absolute;
+		right: 0;
+		top: 0;
+		box-sizing: border-box;
+		display: flex;
+		flex-direction: column;
+	}
+	
+	.story_video_mobnavigation_play {
+		background-size: 271px 149px;
+		background-position: 0 0;
+		background-image: url('images/sprites3.png');
+		background-repeat: no-repeat;
+		height: 135px;
+		width: 135px;
+		pointer-events: auto;
+		position: static;
+		background-color: transparent;
+		border: 0;
+		outline: 0;
 	}
 }

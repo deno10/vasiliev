@@ -454,3 +454,70 @@ div.story_button_right_inner {
 	flex-direction: column;
 	position: relative;
 }
+
+.story_header_content_icons_close {
+	display: none;
+}
+
+@media (max-device-width: 812px) and (orientation: portrait) {
+	div.story_header {
+		background: linear-gradient(to bottom,rgba(0,0,0,.2),transparent);
+		height: 72px;
+		padding: 8px 8px 0;
+		pointer-events: auto;
+		display: flex;
+		flex-direction: column;
+		flex: none;
+		width: 100%;		
+		position: relative;
+		align-items: stretch;
+	}
+	
+	div.story_container {
+		height: 100%;
+		width: 100%;
+		position: relative;
+		transform-style: preserve-3d;
+		align-items: stretch;
+		box-sizing: border-box;
+		display: flex;
+		flex-direction: column;
+		flex-shrink: 0;
+	}
+	
+	div.story_video_outer {
+		border-radius: 0px;
+	}
+	
+	.story_header_content_icons_play,
+	.story_header_content_icons_sound_svg,
+	.story_closebutton	{
+		display: none !important;
+	}
+	
+	div.story_header_content {
+		margin: 0 -8px 0 8px;
+	}
+	
+	.story_header_content_icons_close {
+		min-height: 40px;
+		min-width: 40px;
+		align-items: center;
+		background: 0 0;
+		border: 0;
+		cursor: pointer;
+		display: flex;
+		flex-grow: 0;
+		justify-content: center;
+	}
+	
+	.story_header_content_icons_close_span {
+		background-size: 179px 179px;
+		background-position: 0 -135px;
+		background-image: url('images/sprites2.png');
+		background-repeat: no-repeat;
+		height: 44px;
+		width: 44px;
+		display: block;
+	}
+}

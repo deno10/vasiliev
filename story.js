@@ -21,11 +21,20 @@ function funonload() {
 	}
 	
 	var videoEl = document.getElementsByTagName('video')[0];
+	
+	if (!PHONE) {
+		videoEl.muted = true;
+	}
+		
+	if (PHONE) {
+		videoEl.muted = false;
+	}
+	
 	var playBtn = document.getElementsByClassName('story_header_content_icons_play')[0];
 	var playBtnSVG = document.getElementsByClassName('story_header_content_icons_play_svg')[0];
 	var muteBtn = document.getElementsByClassName('story_header_content_icons_sound_svg')[0];
 	var muteBtnSVG = document.getElementsByClassName('story_header_content_icons_sound_svg')[0];
-	
+
 	if (videoEl.muted == true) {
 		muteBtnSVG.innerHTML = svg_nosound;
 	}
@@ -37,6 +46,10 @@ function funonload() {
 	videoEl.addEventListener('timeupdate', function(){bartime(videoEl, storybar);}, false);
 	videoEl.addEventListener('play', function(){playBtnSVG.innerHTML = svg_pause;}, false);
 	videoEl.addEventListener('ended', function(){playBtnSVG.innerHTML = svg_play;}, false);
+	
+	if (PHONE) {
+		videoEl.addEventListener('play', function(){videoEl.muted = false;}, false);
+	}
 }
 
 function playpause(videoEl, playBtnSVG) {

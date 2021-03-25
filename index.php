@@ -193,19 +193,13 @@ $result = mysqli_query($link, "SELECT * FROM `posts` ORDER BY `id` DESC;") or di
 									<a href="publication.php?id=<?php echo $row['id']; ?>">
 										<div class="post">
 											<div class="post_inner">
-												<img class="post_img" src="uploads/<?php echo $row['url']; $row = mysqli_fetch_array($result, MYSQLI_ASSOC); ?>"/>
+												<img class="post_img" src="uploads/<?php echo $row['url']; ?>"/>
 											</div>
 										</div>
-									</a> <?php } ?>
-								</div>
-								<div class="post_outer"><?php if ($row) { ?>
-									<a href="publication.php?id=<?php echo $row['id']; ?>">
-										<div class="post">
-											<div class="post_inner">
-												<img class="post_img" src="uploads/<?php echo $row['url']; $row = mysqli_fetch_array($result, MYSQLI_ASSOC); ?>"/>
-											</div>
-										</div>
-									</a> <?php } ?>
+										<?php if ($row['type'] == 'video') { ?><div class="post_mediatype">
+											<span class="post_mediatype_video"></span>
+										</div><?php } ?>
+									</a> <?php } $row = mysqli_fetch_array($result, MYSQLI_ASSOC); ?>
 								</div>
 								<div class="post_outer"><?php if ($row) { ?>
 									<a href="publication.php?id=<?php echo $row['id']; ?>">
@@ -214,6 +208,21 @@ $result = mysqli_query($link, "SELECT * FROM `posts` ORDER BY `id` DESC;") or di
 												<img class="post_img" src="uploads/<?php echo $row['url']; ?>"/>
 											</div>
 										</div>
+										<?php if ($row['type'] == 'video') { ?><div class="post_mediatype">
+											<span class="post_mediatype_video"></span>
+										</div><?php } ?>
+									</a> <?php } $row = mysqli_fetch_array($result, MYSQLI_ASSOC); ?>
+								</div>
+								<div class="post_outer"><?php if ($row) { ?>
+									<a href="publication.php?id=<?php echo $row['id']; ?>">
+										<div class="post">
+											<div class="post_inner">
+												<img class="post_img" src="uploads/<?php echo $row['url']; ?>"/>
+											</div>
+										</div>
+										<?php if ($row['type'] == 'video') { ?><div class="post_mediatype">
+											<span class="post_mediatype_video"></span>
+										</div><?php } ?>
 									</a> <?php } ?>
 								</div>
 							</div>

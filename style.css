@@ -431,6 +431,29 @@ img.post_img {
 	width: 100%;
 }
 
+div.post_mediatype {
+	align-items: flex-end;
+	bottom: 0;
+	display: flex;
+	justify-content: flex-start;
+	left: 0;
+	right: 0;
+	top: 0;
+	pointer-events: none;
+	position: absolute;
+	box-sizing: border-box;
+	flex-direction: column;
+}
+
+.post_mediatype_video {
+	background-position: 0 -34px;
+	background-repeat: no-repeat;
+	background-image: url('images/mediatypes.png');
+	height: 32px;
+	width: 32px;
+	display: block;
+}
+
 div.nav_up {
 	-webkit-box-ordinal-group: 1;
 	order: 0;

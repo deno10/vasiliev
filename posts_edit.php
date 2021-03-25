@@ -15,7 +15,7 @@ if (!USER_LOGGED) $UserRole = 63;
 $paccess = false;
 	
 $result = mysqli_query($link, "SELECT * FROM `pages` WHERE `name`='$ThisPageName'") or die (mysqli_error($link));
-$row = mysqli_fetch_array($result, MYSQL_ASSOC);
+$row = mysqli_fetch_array($result, MYSQLI_ASSOC);
 if ($row['minrole'] == NULL) die ('Ошибка при получении доступа! Обратитесь к администратору для настройки базы');
 if ($UserRole <= $row['minrole']) $paccess = true;
 	
@@ -33,7 +33,7 @@ if (!$paccess)
 if ($_POST["action"] == "showedit" && $paccess) {
 	$eid = $_POST["id"];
 	$result = mysqli_query($link, "SELECT * FROM `posts` WHERE `id`='$eid'") or die (mysqli_error($link));
-	$row = mysqli_fetch_array($result, MYSQL_ASSOC);
+	$row = mysqli_fetch_array($result, MYSQLI_ASSOC);
 ?>
 
 <form action="posts_edit.php" method="post">
@@ -97,7 +97,7 @@ if ($_POST["action"] == "edit" && $paccess) {
 if ($_POST["action"] == "showdelete" && $paccess) {
 	$eid = $_POST["id"];
 	$result = mysqli_query($link, "SELECT * FROM `posts` WHERE `id`='$eid'") or die (mysqli_error($link));
-	$row = mysqli_fetch_array($result, MYSQL_ASSOC);
+	$row = mysqli_fetch_array($result, MYSQLI_ASSOC);
 ?>
 <form action="posts_edit.php" method="post">
 <input type=hidden name=action value="delete"></input>
@@ -128,9 +128,14 @@ if ($_POST["action"] == "showadd" && $paccess) {
 <form action="posts_edit.php" method="post">
 <input type=hidden name=action value="add"></input>
 <input type=hidden name=ratio id="ratio" value="1"></input>
+<input type=hidden name=type id="type" value="image"></input>
 <table class=edittable>
 <tr>
-	<td>Изображение:</td>
+	<td>Тип:</td>
+	<td><input name="mediatype" id="mediatype" type="radio" value="image" checked=checked> Изображение<br/><input name="mediatype" id="mediatype2" type="radio" value="video"> Видео</td>
+</tr>
+<tr>
+	<td>Медиафайл:</td>
 	<td><input type="file" id="js-file" onChange="imgupload();"></input><div id="result"></div></td>
 </tr>
 <tr>
@@ -168,11 +173,12 @@ if ($_POST["action"] == "add" && $paccess) {
 	$date = $_POST["date"];
 	$description = $_POST["description"];
 	$ratio = $_POST["ratio"];
+	$type = $_POST["type"];
 	$liked_by = NULL;
 	if ($_POST["liked_by"])
 		$liked_by = $_POST["liked_by"];
 
-	$result = mysqli_query($link, "INSERT INTO `posts` (`url`, `url_original`, `date`, `description`, `liked_by`, `ratio`) VALUES ('$url', '$url_original', '$date', '$description', '$liked_by', '$ratio');") or die (mysqli_error($link));
+	$result = mysqli_query($link, "INSERT INTO `posts` (`url`, `url_original`, `date`, `description`, `liked_by`, `ratio`, `type`) VALUES ('$url', '$url_original', '$date', '$description', '$liked_by', '$ratio', '$type');") or die (mysqli_error($link));
 	
 	if ($result) {
 		echo "Удачно";

@@ -21,7 +21,13 @@ function login($username, $password)
 	$USER = mysqli_fetch_array($result);
 	if (!empty($USER)) //если существует такая пара логин-пароль
 	{
-		$_SESSION = array_merge($_SESSION, $USER); //добавляем массив с пользователем к массиву сессии
+		//$_SESSION = array_merge($_SESSION, $USER); //добавляем массив с пользователем к массиву сессии
+		$_SESSION['uid'] = $USER['uid'];
+		$_SESSION['username'] = $USER['username'];
+		$_SESSION['showname'] = $USER['showname'];
+		$_SESSION['password'] = $USER['password'];
+		$_SESSION['role'] = $USER['role'];
+		$_SESSION['sid'] = $USER['sid'];
 		mysqli_query($link, "UPDATE `".USERS_TABLE."` SET `sid`='".SID."' WHERE `uid`='".$USER['uid']."';")
 			or die(mysqli_error($link));
 		return true;

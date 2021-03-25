@@ -145,7 +145,7 @@ if (!USER_LOGGED) $UserRole = 63;
 	$paccess = false;
 	
 	$result = mysqli_query($link, "SELECT * FROM `pages` WHERE `name`='$ThisPageName'") or die (mysqli_error($link));
-	$row = mysqli_fetch_array($result, MYSQL_ASSOC);
+	$row = mysqli_fetch_array($result, MYSQLI_ASSOC);
 	if ($row['minrole'] == NULL) die ('Ошибка при получении доступа! Обратитесь к администратору для настройки базы');
 	if ($UserRole <= $row['minrole']) $paccess = true;
 	
@@ -212,7 +212,7 @@ if (!USER_LOGGED) $UserRole = 63;
 				<td>Специальные права доступа</td>
 			</tr>
 		<?php
-		while ($row = mysqli_fetch_array($result, MYSQL_ASSOC))
+		while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC))
 		{
 		?>
 <tr>
@@ -227,7 +227,7 @@ if (!USER_LOGGED) $UserRole = 63;
 			<td><?php
 			$temprole = $row['minrole'];
 			$subresult = mysqli_query($link, "SELECT `name` FROM `roles` WHERE `value`='$temprole'") or die (mysqli_error($link));
-			$subrow = mysqli_fetch_array($subresult, MYSQL_ASSOC);
+			$subrow = mysqli_fetch_array($subresult, MYSQLI_ASSOC);
 			if ($subrow['name'])
 				echo $subrow['name'];
 			else
@@ -238,7 +238,7 @@ if (!USER_LOGGED) $UserRole = 63;
 				if ($row['specrole']) {
 					$specroles = unserialize($row['specrole']);
 					$subresult = mysqli_query($link, "SELECT * FROM `roles`") or die (mysqli_error($link));
-					while ($rowroles = mysqli_fetch_array($subresult, MYSQL_ASSOC)) {
+					while ($rowroles = mysqli_fetch_array($subresult, MYSQLI_ASSOC)) {
 						foreach ($specroles as $key => $value) {
 							if ($value == $rowroles['value']) echo($rowroles['name'] . "; ");
 						}

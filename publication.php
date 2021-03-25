@@ -11,7 +11,7 @@ if (!isset($_GET['id'])) header("Location: index.php");
 $eid = $_GET['id'];
 
 $result = mysqli_query($link, "SELECT * FROM `posts` WHERE `id`='$eid'") or die (mysqli_error($link));
-$row = mysqli_fetch_array($result, MYSQL_ASSOC);
+$row = mysqli_fetch_array($result, MYSQLI_ASSOC);
 if (!$row) header("Location: index.php");
 
 ?>
@@ -100,11 +100,21 @@ if (!$row) header("Location: index.php");
 						</div-->
 						<div class="bigpost_media">
 							<div class="bigpost_media_wrapper">
-								<div class="bigpost_media_outer">
+								<?php if ($row['type'] == 'image') { ?><div class="bigpost_media_outer">
 									<div class="bigpost_media_inner"<?php if ($row['ratio'] != 1) echo('style="padding-bottom: '.$row['ratio']*100 . '%;"');?>>
 										<img class="bigpost_media_img" src="uploads/<?php echo $row['url']; ?>"/>
 									</div>
-								</div>
+								</div><?php } elseif ($row['type'] == 'video') { ?>
+								<div class="bigpost_mediavideo_outer">
+									<div class="bigpost_mediavideo_inner">
+											<div class="bigpost_video_wrapper">
+												<div class="bigpost_video_outer">
+													<video class="bigpost_video" playsinline="" poster="uploads/<?php echo $row['url']; ?>" preload=none type="video/mp4" src="uploads/<?php echo $row['url_original']; ?>" loop="" controls="controls">
+													</video>
+												</div>
+											</div>
+									</div>
+								</div><?php } else die('Контент неизвестного типа') ?>
 							</div>
 						</div>
 						<div class="bigpost_description">

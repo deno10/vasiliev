@@ -24,30 +24,60 @@ $link = $GLOBALS['mysql_oldstyle_link'];
 			if (window.FormData === undefined) {
 				alert('В вашем браузере FormData не поддерживается')
 			} else {
-				var formData = new FormData();
-				formData.append('file', $("#js-file")[0].files[0]);
-				$.ajax({
-					type: "POST",
-					url: '/img_upload.php',
-					cache: false,
-					contentType: false,
-					processData: false,
-					data: formData,
-					dataType : 'json',
-					success: function(msg){
-						if (msg.error == '') {
-							$("#js-file").hide();
-							$('#result').html('<img src="uploads/'+msg.url+'" style="max-height: 300px;"/>');
-							$('#url').attr("value", msg.url);
-							$('#url').attr("readonly", "readonly");
-							$('#url_original').attr("value", msg.url_original);
-							$('#url_original').attr("readonly", "readonly");
-							$('#ratio').attr("value", msg.ratio);
-						} else {
-							$('#result').html(msg.error);
+				if ($('input[name=mediatype]:checked').val() == "image") {
+					var formData = new FormData();
+					formData.append('file', $("#js-file")[0].files[0]);
+					$('#result').html('<img src="img/loading.gif"/>');
+					$.ajax({
+						type: "POST",
+						url: '/img_upload.php',
+						cache: false,
+						contentType: false,
+						processData: false,
+						data: formData,
+						dataType : 'json',
+						success: function(msg){
+							if (msg.error == '') {
+								$("#js-file").hide();
+								$('#result').html('<img src="uploads/'+msg.url+'" style="max-height: 300px;"/>');
+								$('#url').attr("value", msg.url);
+								$('#url').attr("readonly", "readonly");
+								$('#url_original').attr("value", msg.url_original);
+								$('#url_original').attr("readonly", "readonly");
+								$('#ratio').attr("value", msg.ratio);
+							} else {
+								$('#result').html(msg.error);
+							}
 						}
-					}
-				});
+					});
+				} else {
+					var formData = new FormData();
+					formData.append('file', $("#js-file")[0].files[0]);
+					$('#result').html('<img src="img/loading.gif"/>');
+					$.ajax({
+						type: "POST",
+						url: '/video_upload.php',
+						cache: false,
+						contentType: false,
+						processData: false,
+						data: formData,
+						dataType : 'json',
+						success: function(msg){
+							if (msg.error == '') {
+								$("#js-file").hide();
+								$('#result').html('<img src="uploads/'+msg.url+'" style="max-height: 300px;"/><br/>Кадр из видео (Превью)');
+								$('#url').attr("value", msg.url);
+								$('#url').attr("readonly", "readonly");
+								$('#url_original').attr("value", msg.url_original);
+								$('#url_original').attr("readonly", "readonly");
+								$('#ratio').attr("value", msg.ratio);
+								$('#type').attr("value", "video");
+							} else {
+								$('#result').html(msg.error);
+							}
+						}
+					});
+				}
 			}
 		}
 		</script>
@@ -165,7 +195,7 @@ if (!USER_LOGGED) $UserRole = 63;
 	$paccess = false;
 	
 	$result = mysqli_query($link, "SELECT * FROM `pages` WHERE `name`='$ThisPageName'") or die (mysqli_error($link));
-	$row = mysqli_fetch_array($result, MYSQL_ASSOC);
+	$row = mysqli_fetch_array($result, MYSQLI_ASSOC);
 	if ($row['minrole'] == NULL) die ('Ошибка при получении доступа! Обратитесь к администратору для настройки базы');
 	if ($UserRole <= $row['minrole']) $paccess = true;
 	
@@ -232,7 +262,7 @@ if (!USER_LOGGED) $UserRole = 63;
 				<td>Кем лайкнуто</td>
 			</tr>
 		<?php
-		while ($row = mysqli_fetch_array($result, MYSQL_ASSOC))
+		while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC))
 		{
 		?>
 		<tr>
@@ -242,7 +272,7 @@ if (!USER_LOGGED) $UserRole = 63;
 			</td>
 			<td><?php echo $row['id']; ?></td>
 			<td><?php echo $row['date']; ?></td>
-			<td><img src="uploads/<?php echo $row['url']; ?>" style= "max-height: 200px;"/></td>
+			<td><img src="uploads/<?php echo $row['url']; ?>" style= "max-height: 200px;"/><?php if ($row['type'] == 'video') echo '<br/>Кадр из видео (превью)'?></td>
 			<td><a href="uploads/<?php echo $row['url_original']; ?>">link...</a></td>
 			<td><?php echo $row['description']; ?></td>
 			<td><?php echo $row['liked_by']; ?></td>

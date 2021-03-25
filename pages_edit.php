@@ -15,7 +15,7 @@ if (!USER_LOGGED) $UserRole = 63;
 $paccess = false;
 	
 $result = mysqli_query($link, "SELECT * FROM `pages` WHERE `name`='$ThisPageName'") or die (mysqli_error($link));
-$row = mysqli_fetch_array($result, MYSQL_ASSOC);
+$row = mysqli_fetch_array($result, MYSQLI_ASSOC);
 if ($row['minrole'] == NULL) die ('Ошибка при получении доступа! Обратитесь к администратору для настройки базы');
 if ($UserRole <= $row['minrole']) $paccess = true;
 	
@@ -33,7 +33,7 @@ if (!$paccess)
 if ($_POST["action"] == "showedit" && $paccess) {
 	$eid = $_POST["id"];
 	$result = mysqli_query($link, "SELECT * FROM `pages` WHERE `id`='$eid'") or die (mysqli_error($link));
-	$row = mysqli_fetch_array($result, MYSQL_ASSOC);
+	$row = mysqli_fetch_array($result, MYSQLI_ASSOC);
 ?>
 <form action="pages_edit.php" method="post">
 <input type=hidden name=action value="edit"></input>
@@ -59,7 +59,7 @@ if ($_POST["action"] == "showedit" && $paccess) {
 	<?php
 	$trole = $row['minrole'];
 	$resultR = mysqli_query($link, "SELECT * FROM `roles` WHERE `value`='$trole'") or die (mysqli_error($link));
-	$rowR = mysqli_fetch_array($resultR, MYSQL_ASSOC);
+	$rowR = mysqli_fetch_array($resultR, MYSQLI_ASSOC);
 	if (!$rowR)
 		$norole = true;
 	else
@@ -74,7 +74,7 @@ if ($_POST["action"] == "showedit" && $paccess) {
 		<select id=role1 name=minrole required=required <?php if ($norole) echo ('disabled=disabled style="display: none;"'); ?>>
 			<?php
 			$result = mysqli_query($link, "SELECT * FROM `roles`") or die (mysqli_error($link));
-			while ($rowroles = mysqli_fetch_array($result, MYSQL_ASSOC)) {
+			while ($rowroles = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
 			?>
 			<option value="<?php echo $rowroles['value']; ?>" <?php if (!$norole && $rowroles['value'] == $trole) echo "selected"?>><?php echo $rowroles['name']; ?></option>
 			<?php
@@ -96,7 +96,7 @@ if ($_POST["action"] == "showedit" && $paccess) {
 		<select name="specrole[]" multiple>
 			<?php
 			$result = mysqli_query($link, "SELECT * FROM `roles`") or die (mysqli_error($link));
-			while ($rowroles = mysqli_fetch_array($result, MYSQL_ASSOC)) {
+			while ($rowroles = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
 			?>
 			<option value="<?php echo $rowroles['value']; ?>" 
 			<?php
@@ -151,7 +151,7 @@ if ($_POST["action"] == "edit" && $paccess) {
 if ($_POST["action"] == "showdelete" && $paccess) {
 	$eid = $_POST["id"];
 	$result = mysqli_query($link, "SELECT * FROM `pages` WHERE `id`='$eid'") or die (mysqli_error($link));
-	$row = mysqli_fetch_array($result, MYSQL_ASSOC);
+	$row = mysqli_fetch_array($result, MYSQLI_ASSOC);
 ?>
 <form action="pages_edit.php" method="post">
 <input type=hidden name=action value="delete"></input>
@@ -204,7 +204,7 @@ if ($_POST["action"] == "showadd" && $paccess) {
 		<select id=role1 name=minrole required=required>
 			<?php
 			$result = mysqli_query($link, "SELECT * FROM `roles`") or die (mysqli_error($link));
-			while ($rowroles = mysqli_fetch_array($result, MYSQL_ASSOC)) {
+			while ($rowroles = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
 			?>
 			<option value="<?php echo $rowroles['value']; ?>"><?php echo $rowroles['name']; ?></option>
 			<?php
@@ -220,7 +220,7 @@ if ($_POST["action"] == "showadd" && $paccess) {
 		<select name="specrole[]" multiple>
 			<?php
 			$result = mysqli_query($link, "SELECT * FROM `roles`") or die (mysqli_error($link));
-			while ($rowroles = mysqli_fetch_array($result, MYSQL_ASSOC)) {
+			while ($rowroles = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
 			?>
 			<option value="<?php echo $rowroles['value']; ?>"><?php echo $rowroles['name']; ?></option>
 			<?php

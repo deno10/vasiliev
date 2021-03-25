@@ -150,7 +150,7 @@ if (!USER_LOGGED) $UserRole = 63;
 	$paccess = false;
 	
 	$result = mysqli_query($link, "SELECT * FROM `pages` WHERE `name`='$ThisPageName'") or die (mysqli_error($link));
-	$row = mysqli_fetch_array($result, MYSQL_ASSOC);
+	$row = mysqli_fetch_array($result, MYSQLI_ASSOC);
 	if ($row['minrole'] == NULL) die ('Ошибка при получении доступа! Обратитесь к администратору для настройки базы');
 	if ($UserRole <= $row['minrole']) $paccess = true;
 	
@@ -215,7 +215,7 @@ if (!USER_LOGGED) $UserRole = 63;
 				<td><abbr title="Уровень доступа отображается в том случае, если для него не указана роль">Роль (уровень доступа)</abbr></td>
 			</tr>
 		<?php
-		while ($row = mysqli_fetch_array($result, MYSQL_ASSOC))
+		while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC))
 		{
 		?>
 <tr>
@@ -229,7 +229,7 @@ if (!USER_LOGGED) $UserRole = 63;
 			<td><?php
 			$temprole = $row['role'];
 			$subresult = mysqli_query($link, "SELECT `name` FROM `roles` WHERE `value`='$temprole'") or die (mysqli_error($link));
-			$subrow = mysqli_fetch_array($subresult, MYSQL_ASSOC);
+			$subrow = mysqli_fetch_array($subresult, MYSQLI_ASSOC);
 			if ($subrow['name'])
 				echo $subrow['name'];
 			else

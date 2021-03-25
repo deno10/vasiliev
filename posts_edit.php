@@ -127,6 +127,7 @@ if ($_POST["action"] == "showadd" && $paccess) {
 
 <form action="posts_edit.php" method="post">
 <input type=hidden name=action value="add"></input>
+<input type=hidden name=ratio id="ratio" value="1"></input>
 <table class=edittable>
 <tr>
 	<td>Изображение:</td>
@@ -166,11 +167,12 @@ if ($_POST["action"] == "add" && $paccess) {
 	$url_original = $_POST["url_original"];
 	$date = $_POST["date"];
 	$description = $_POST["description"];
+	$ratio = $_POST["ratio"];
 	$liked_by = NULL;
 	if ($_POST["liked_by"])
 		$liked_by = $_POST["liked_by"];
 
-	$result = mysqli_query($link, "INSERT INTO `posts` (`url`, `url_original`, `date`, `description`, `liked_by`) VALUES ('$url', '$url_original', '$date', '$description', '$liked_by');") or die (mysqli_error($link));
+	$result = mysqli_query($link, "INSERT INTO `posts` (`url`, `url_original`, `date`, `description`, `liked_by`, `ratio`) VALUES ('$url', '$url_original', '$date', '$description', '$liked_by', '$ratio');") or die (mysqli_error($link));
 	
 	if ($result) {
 		echo "Удачно";

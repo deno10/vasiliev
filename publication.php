@@ -101,7 +101,7 @@ if (!$row) header("Location: index.php");
 						<div class="bigpost_media">
 							<div class="bigpost_media_wrapper">
 								<div class="bigpost_media_outer">
-									<div class="bigpost_media_inner">
+									<div class="bigpost_media_inner"<?php if ($row['ratio'] != 1) echo('style="padding-bottom: '.$row['ratio']*100 . '%;"');?>>
 										<img class="bigpost_media_img" src="uploads/<?php echo $row['url']; ?>"/>
 									</div>
 								</div>

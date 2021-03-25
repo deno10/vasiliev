@@ -20,7 +20,7 @@ function resize_photo($path, $filename, $type, $tmp_name){
 $input_name = 'file';
  
 // Разрешенные расширения файлов.
-$allow = array('jpg', 'jpeg', 'png');
+$allow = array('jpg', 'jpeg', 'png', 'mp4');
  
 // Запрещенные расширения файлов.
 $deny = array(
@@ -34,7 +34,7 @@ $path = __DIR__ . '/uploads/';
  
  
 $error = $success = '';
-$url = $url_original = '';
+$url = $url_original = $ratio = '';
 if (!isset($_FILES[$input_name])) {
 	$error = 'Файл не загружен.';
 } else {
@@ -69,6 +69,9 @@ if (!isset($_FILES[$input_name])) {
 				$url_original = $name;
 				if (resize_photo($path, $namebase.".jpg", strtolower($parts['extension']), $path.$name)) {
 					$url = $namebase.".jpg";
+					$imgsize = getimagesize($path.$name);
+					$ratio = $imgsize[1] / $imgsize[0];
+					$ratio = ($ratio > 1) ? 1 : $ratio;
 				} else {
 					$error = 'Ошибка при обработке фото';
 				}
@@ -88,7 +91,8 @@ $data = array(
 	'error'   => $error,
 	'success' => $success,
 	'url'	  => $url,
-	'url_original' => $url_original
+	'url_original' => $url_original,
+	'ratio' => $ratio
 );
  
 header('Content-Type: application/json');

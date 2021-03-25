@@ -42,6 +42,7 @@ $link = $GLOBALS['mysql_oldstyle_link'];
 							$('#url').attr("readonly", "readonly");
 							$('#url_original').attr("value", msg.url_original);
 							$('#url_original').attr("readonly", "readonly");
+							$('#ratio').attr("value", msg.ratio);
 						} else {
 							$('#result').html(msg.error);
 						}

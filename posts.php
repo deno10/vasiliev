@@ -13,9 +13,12 @@ $link = $GLOBALS['mysql_oldstyle_link'];
 		<meta charset="utf-8">
 		<title>Список публикаций</title>
 		<link rel="stylesheet" type="text/css" href="css/style.css">
+		<link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+		<link rel="stylesheet" href="richtext.min.css">
 		<script src="../js/ajaxlogin.js" language="javascript" type="text/javascript"></script>
         <script src="../js/modals.js" language="javascript" type="text/javascript"></script>
 		<script src="../js/jquery-3.6.0.min.js" language="javascript" type="text/javascript"></script>
+		<script src="jquery.richtext.min.js" language="javascript" type="text/javascript"></script>
 		<script language="javascript" type="text/javascript">
 		function imgupload(){
 			if (window.FormData === undefined) {
@@ -71,6 +74,7 @@ $link = $GLOBALS['mysql_oldstyle_link'];
 			{
 				var response = xmlHttpEDIT.responseText;
 				document.getElementById("popupcontentEDIT").innerHTML = response;
+				$('.description').richText({leftAlign: false, centerAlign: false, rightAlign: false, justify: false, ol: false, ul: false, fonts: false, fontSize: false, table: false, heading: false, imageUpload: false, fileUpload: false, height: 200});
 			}
 		}
 		
@@ -123,6 +127,7 @@ $link = $GLOBALS['mysql_oldstyle_link'];
 			{
 				var response = xmlHttpADD.responseText;
 				document.getElementById("popupcontentADD").innerHTML = response;
+				$('.description').richText({leftAlign: false, centerAlign: false, rightAlign: false, justify: false, ol: false, ul: false, fonts: false, fontSize: false, table: false, heading: false, imageUpload: false, fileUpload: false, height: 200});
 			}
 		}
 		</script>
@@ -236,8 +241,8 @@ if (!USER_LOGGED) $UserRole = 63;
 			</td>
 			<td><?php echo $row['id']; ?></td>
 			<td><?php echo $row['date']; ?></td>
-			<td><img src="uploads/<?php echo $row['url']; ?>" style= "max-width: 250px;"/></td>
-			<td><?php echo $row['url_original']; ?></td>
+			<td><img src="uploads/<?php echo $row['url']; ?>" style= "max-height: 200px;"/></td>
+			<td><a href="uploads/<?php echo $row['url_original']; ?>">link...</a></td>
 			<td><?php echo $row['description']; ?></td>
 			<td><?php echo $row['liked_by']; ?></td>
 		</tr>

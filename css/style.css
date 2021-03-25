@@ -27,7 +27,8 @@ table.whitebox-table-first tr:nth-child(1) td {background-color: #bbb; font-weig
 table.whitebox-table-firstcenter tr td:nth-child(1) {text-align: center;}
 table.whitebox-table-secondcenter tr td:nth-child(2) {text-align: center;}
 
-table.edittable tr td input, table.edittable tr td select{padding: 0.4em; margin: 0.3em;}
+table.edittable tr td input, table.edittable tr td select{padding: 0.4em; margin: 0.3em; width: 98%;}
+table.edittable tr td .submitbutton {width: auto; padding: 0.5em 2em;}
 table.edittable tr td:first-child {text-align: right;}
 
 table.register-table {max-width: 75%;}
@@ -127,8 +128,8 @@ a#actid {height: 1.5em; width: 1.5em; margin-left: 0.1em; margin-right: 0.1em;}
     text-align: justify;
     visibility: hidden;
     z-index: 10;
-	max-width: 70%;
-	max-height: 80%;
+	max-width: 75%;
+	max-height: 90%;
 	
     transform: translate(-1%, -1%);
 
@@ -138,6 +139,12 @@ a#actid {height: 1.5em; width: 1.5em; margin-left: 0.1em; margin-right: 0.1em;}
 
     transition: opacity .5s, top .5s;
 }
+
+#popupcontentADD {
+	overflow-y: scroll;
+	overflow-x: hidden;
+}
+
 .overlay:target+.popup {
     opacity: 1;
     visibility: visible;
@@ -165,7 +172,7 @@ a#actid {height: 1.5em; width: 1.5em; margin-left: 0.1em; margin-right: 0.1em;}
     background-color: rgba(64, 128, 128, 0.8);
 }
 .popup p, .popup div {
-    padding: 0px 5px 0px 5px;
+    padding: 0px 15px;
 }
 
 

@@ -190,7 +190,7 @@ $result = mysqli_query($link, "SELECT * FROM `posts` ORDER BY `id` DESC;") or di
 						<?php while ($row = mysqli_fetch_array($result, MYSQL_ASSOC)) { ?>
 							<div class="posts_row">
 								<div class="post_outer"><?php if ($row) { ?>
-									<a href="#">
+									<a href="publication.php?id=<?php echo $row['id']; ?>">
 										<div class="post">
 											<div class="post_inner">
 												<img class="post_img" src="uploads/<?php echo $row['url']; $row = mysqli_fetch_array($result, MYSQL_ASSOC); ?>"/>
@@ -199,7 +199,7 @@ $result = mysqli_query($link, "SELECT * FROM `posts` ORDER BY `id` DESC;") or di
 									</a> <? } ?>
 								</div>
 								<div class="post_outer"><?php if ($row) { ?>
-									<a href="#">
+									<a href="publication.php?id=<?php echo $row['id']; ?>">
 										<div class="post">
 											<div class="post_inner">
 												<img class="post_img" src="uploads/<?php echo $row['url']; $row = mysqli_fetch_array($result, MYSQL_ASSOC); ?>"/>
@@ -208,7 +208,7 @@ $result = mysqli_query($link, "SELECT * FROM `posts` ORDER BY `id` DESC;") or di
 									</a> <? } ?>
 								</div>
 								<div class="post_outer"><?php if ($row) { ?>
-									<a href="#">
+									<a href="publication.php?id=<?php echo $row['id']; ?>">
 										<div class="post">
 											<div class="post_inner">
 												<img class="post_img" src="uploads/<?php echo $row['url']; ?>"/>

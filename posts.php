@@ -74,7 +74,7 @@ $link = $GLOBALS['mysql_oldstyle_link'];
 			{
 				var response = xmlHttpEDIT.responseText;
 				document.getElementById("popupcontentEDIT").innerHTML = response;
-				$('.description').richText({leftAlign: false, centerAlign: false, rightAlign: false, justify: false, ol: false, ul: false, fonts: false, fontSize: false, table: false, heading: false, imageUpload: false, fileUpload: false, height: 200});
+				$('.description').richText({leftAlign: false, centerAlign: false, rightAlign: false, justify: false, ol: false, ul: false, fonts: false, fontSize: false, table: false, heading: false, imageUpload: false, fileUpload: false, videoEmbed: false, height: 200});
 			}
 		}
 		
@@ -127,7 +127,7 @@ $link = $GLOBALS['mysql_oldstyle_link'];
 			{
 				var response = xmlHttpADD.responseText;
 				document.getElementById("popupcontentADD").innerHTML = response;
-				$('.description').richText({leftAlign: false, centerAlign: false, rightAlign: false, justify: false, ol: false, ul: false, fonts: false, fontSize: false, table: false, heading: false, imageUpload: false, fileUpload: false, height: 200});
+				$('.description').richText({leftAlign: false, centerAlign: false, rightAlign: false, justify: false, ol: false, ul: false, fonts: false, fontSize: false, table: false, heading: false, imageUpload: false, fileUpload: false, videoEmbed: false, height: 200});
 			}
 		}
 		</script>

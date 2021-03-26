@@ -18,7 +18,8 @@ if (!$row) header("Location: index.php");
 <!doctype html>
 <html>
 	<head>
-		<meta charset="utf-8"/>
+		<meta charset="utf-8">
+		<meta id="viewport" name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, viewport-fit=cover">
 		<link rel="preload" href="style.css" as="style">
 		<link rel="stylesheet" href="style.css">
 		<title>rektorkrut • Фото и видео в Instagram</title>

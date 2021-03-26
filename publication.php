@@ -104,11 +104,11 @@ if (!$row) header("Location: index.php");
 						<div class="bigpost_media">
 							<div class="bigpost_media_wrapper">
 								<?php if ($row['type'] == 'image') { ?><div class="bigpost_media_outer">
-									<div class="bigpost_media_inner"<?php if ($row['ratio'] != 1) echo('style="padding-bottom: '.$row['ratio']*100 . '%;"');?>>
+									<div class="bigpost_media_inner" <?php if ($row['ratio'] != 1) echo('style="padding-bottom: '.$row['ratio']*100 . '%;"');?>>
 										<img class="bigpost_media_img" src="uploads/<?php echo $row['url']; ?>"/>
 									</div>
 								</div><?php } elseif ($row['type'] == 'video') { ?>
-								<div class="bigpost_mediavideo_outer">
+								<div class="bigpost_mediavideo_outer" <?php if ($row['ratio'] != 1) echo('style="padding-bottom: '.$row['ratio']*100 . '%;"');?>>
 									<div class="bigpost_mediavideo_inner">
 											<div class="bigpost_video_wrapper">
 												<div class="bigpost_video_outer">

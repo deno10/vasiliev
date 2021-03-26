@@ -1167,11 +1167,11 @@ video.bigpost_video {
 	width: 100%;
 }
 
-div.navup_mobile {
+div.navup_mobile, div.header_description_mobile, .header_numbers_mobile, div.nav_mobile {
 	display: none;
 }
 
-@media (max-device-width: 812px) and (orientation: portrait) {
+@media (max-device-width: 812px) and (orientation: portrait), (max-width: 735px) {
 	div.nav_up {
 		display: none;
 	}
@@ -1423,5 +1423,229 @@ div.navup_mobile {
 		flex-direction: column;
 		flex-shrink: 0;
 		position: relative;
+	}
+	
+	div.main {
+		background-color: #fff;
+		flex-grow: 1;
+		order: 4;
+		align-items: stretch;
+		box-sizing: border-box;
+		display: flex;
+		flex-direction: column;
+		flex-shrink: 0;
+		position: relative;
+	}
+	
+	div.content {
+		margin-bottom: 0;
+		width: 100%;
+		align-items: stretch;
+		box-sizing: border-box;
+	}
+	
+	div.header {
+		margin-left: 16px;
+		margin-right: 16px;
+		margin-top: 16px;
+		margin-bottom: 24px;
+		padding-bottom: 0;
+		border-bottom: none;
+		align-items: stretch;
+		box-sizing: border-box;
+		flex-shrink: 0;
+	}
+	
+	div.avatar {
+		justify-content: center;
+		margin-right: 28px;
+		align-items: stretch;
+		box-sizing: border-box;
+	}
+	
+	.avatar_span {
+		width: 77px !important;
+		height: 77px !important;
+	}
+	
+	.header_numbers, .header_description {
+		display: none !important;
+	}
+	
+	div.header_account {
+		margin-bottom: 12px;
+		align-items: center;
+		flex-direction: row;
+		flex-shrink: 1;
+		min-width: 0;
+		box-sizing: border-box;
+		/*дальше сомнительные правки*/
+		margin-top: auto;
+		margin-bottom: auto;
+		padding-bottom: 11px;
+	}
+	
+	div.header_account_name {
+		margin: 0; /*возможно, временно*/
+	}
+	
+	div.header_description_mobile {
+		font-size: 14px;
+		line-height: 20px;
+		overflow: hidden;
+		padding: 0 16px 21px;
+		text-overflow: ellipsis;
+		display: block;
+		box-sizing: border-box;
+		flex-shrink: 0;
+		position: relative;
+	}
+	
+	div.stories {
+		height: 88px;
+		margin-bottom: 21px;
+		align-items: stretch;
+		border: 0 solid #000;
+		box-sizing: border-box;
+	}
+	
+	div.stories_inner, div.stories_inner2, div.stories_content {
+		align-items: stretch;
+		box-sizing: border-box;
+	}
+
+	div.stories_story {
+		width: 72.5px;
+	}
+	
+	div.stories_story_img_inner {
+		width: 56px;
+		height: 56px;
+	}
+	
+	div.stories_story_inner {
+		margin: 0 5px;
+		padding-top: 5px;
+		width: 65px;
+		align-items: center;
+		display: flex;
+		box-sizing: border-box;
+		flex-shrink: 0;
+	}
+	
+	li.filler {
+		width: 8px;
+	}
+	
+	div.stories_story_name {
+		font-size: 12px;
+		padding-top: 8px;
+		cursor: pointer;
+		display: block;
+		overflow: hidden;
+		text-align: center;
+		text-overflow: ellipsis;
+		white-space: nowrap;
+		width: 100%;
+		font-weight: 400;
+	}
+	
+	.header_numbers_mobile {
+		justify-content: space-around;
+		border-top: 1px solid #dbdbdb;
+		padding: 12px 0;
+		display: flex;
+		flex-direction: row;
+		list-style: none;
+	}
+	
+	.header_number_mobile {
+		font-size: 14px;
+		text-align: center;
+		width: 33.3%;
+	}
+	
+	.header_number_inner_mobile {
+		text-align: center;
+		color: #8e8e8e;
+	}
+	
+	.header_number_number_mobile {
+		display: block;
+		color: #262626;
+		font-weight: 600;
+	}
+	
+	div.nav {
+		display: none;
+	}
+	
+	div.nav_mobile {
+		align-items: center;
+		border-top: 1px solid #dbdbdb;
+		color: #8e8e8e;
+		display: flex;
+		flex-direction: row;
+		font-size: 12px;
+		font-weight: 600;
+		justify-content: center;
+		letter-spacing: 1px;
+		text-align: center;
+		box-sizing: border-box;
+		flex-shrink: 0;
+		position: relative;
+	}
+	
+	a.nav_item_mobile, a.nav_item_mobile:visited {
+		align-items: center;
+		color: #262626;
+		cursor: pointer;
+		display: flex;
+		flex: 1 1 auto;
+		flex-direction: row;
+		height: 44px;
+		justify-content: center;
+		text-transform: uppercase;
+	}
+	
+	svg.nav_item_mobile_svg {
+		display: block;
+		position: relative;
+	}
+	
+	.nav_item_mobile_img {
+		background-size: 510px 477px;
+		background-position: 0 -453px;
+		background-image: url('images/sprites4.png');
+		background-repeat: no-repeat;
+		height: 24px;
+		width: 24px;
+		display: block;
+		vertical-align: baseline;
+	}
+	
+	div.posts {
+		border-top: 1px solid #dbdbdb;
+		flex-grow: 1;
+		box-sizing: border-box;
+	}
+	
+	div.posts_row {
+		flex-direction: row;
+		margin-bottom: 3px;
+		align-items: stretch;
+		box-sizing: border-box;
+		display: flex;
+		flex-shrink: 0;
+		position: relative;
+	}
+	
+	div.post_outer {
+		flex: 1 0 0%;
+		display: block;
+		position: relative;
+		width: 100%;
+		margin-right: 3px;
+		box-sizing: border-box;
 	}
 }

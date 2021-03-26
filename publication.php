@@ -90,7 +90,7 @@ if (!$row) header("Location: index.php");
 							<div class="bigpost_account_name">
 								<div class="bigpost_account_name_inner">
 									<div class="bigpost_account_name_name">
-										<a class="bigpost_account_name_link" href="index.html"><?php echo $basics['account_name']; ?></a>
+										<a class="bigpost_account_name_link" href="index.php"><?php echo $basics['account_name']; ?></a>
 									</div>
 									<div class="bigpost_account_name_following">
 										<span class="bigpost_account_name_dot">•</span>
@@ -185,7 +185,7 @@ if (!$row) header("Location: index.php");
 														<h2 class="bigpost_descr_description_text_account_outer">
 															<div class="bigpost_descr_description_text_account">
 																<span class="bigpost_descr_description_text_account_inner">
-																	<a class="bigpost_descr_description_text_account_link" href="index.html"><?php echo $basics['account_name']; ?></a>
+																	<a class="bigpost_descr_description_text_account_link" href="index.php"><?php echo $basics['account_name']; ?></a>
 																</span>
 															</div>
 														</h2>
@@ -218,7 +218,7 @@ if (!$row) header("Location: index.php");
 				<div class="navup_mobile_outer">
 					<div class="navup_mobile_inner">
 						<div class="navup_mobile_arrow">
-							<a class="navup_mobile_arrow_link" href="index.html">
+							<a class="navup_mobile_arrow_link" href="index.php">
 								<span class="navup_mobile_arrow_wrapper">
 									<svg class="navup_mobile_arrow_svg" fill="#262626" height="24" width="24" viewBox="0 0 48 48">
 									<path d="M40 33.5c-.4 0-.8-.1-1.1-.4L24 18.1l-14.9 15c-.6.6-1.5.6-2.1 0s-.6-1.5 0-2.1l16-16c.6-.6 1.5-.6 2.1 0l16 16c.6.6.6 1.5 0 2.1-.3.3-.7.4-1.1.4z"></path>

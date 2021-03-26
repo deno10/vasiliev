@@ -226,7 +226,7 @@ if (!$row) header("Location: index.php");
 								</span>
 							</a>
 						</div>
-						<h1 class="navup_mobile_caption">Фото</h1>
+						<h1 class="navup_mobile_caption"><?php echo(($row['type'] == 'image') ? 'Фото' : 'Видео'); ?></h1>
 						<div class="navup_mobile_filler"></div>
 					</div>
 				</div>

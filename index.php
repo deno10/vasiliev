@@ -28,7 +28,7 @@ $result = mysqli_query($link, "SELECT * FROM `posts` ORDER BY `id` DESC;") or di
 						<a href="#">
 							<div class="nav_up_logo_wrapper">
 								<div class="nav_up_logo_inner">
-									<img class="nav_up_logo_img" src="images/instagram.png"/>
+									<img class="nav_up_logo_img" src="images/itmogram.png"/>
 								</div>
 							</div>
 						</a>

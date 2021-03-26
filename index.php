@@ -3,9 +3,11 @@ session_start();
 
 include_once('engine/connect.php');
 include('engine/uni-auth.php');
+include('engine/basic.php');
 
 $ThisPageName = 'posts';
 $link = $GLOBALS['mysql_oldstyle_link'];
+$basics = getbasics();
 
 $result = mysqli_query($link, "SELECT * FROM `posts` ORDER BY `id` DESC;") or die (mysqli_error($link));
 ?>
@@ -15,7 +17,7 @@ $result = mysqli_query($link, "SELECT * FROM `posts` ORDER BY `id` DESC;") or di
 		<meta charset="utf-8"/>
 		<link rel="preload" href="style.css" as="style">
 		<link rel="stylesheet" href="style.css">
-		<title>rektorkrut • Фото и видео в Instagram</title>
+		<title><?php echo $basics['account_name']; ?> • Фото и видео в Instagram</title>
 	</head>
 	<body>
 		<div class="nav_up">
@@ -71,30 +73,30 @@ $result = mysqli_query($link, "SELECT * FROM `posts` ORDER BY `id` DESC;") or di
 				<div class="header">
 					<div class="avatar">
 						<div class="avatar_inner">
-						<a href="story.html"><span class="avatar_span" style="width: 150px; height: 150px;"><img class="avatar_image" src="images/avatar.jpg"/></span></a>
+						<a href="story.html"><span class="avatar_span" style="width: 150px; height: 150px;"><img class="avatar_image" src="<?php echo $basics['avatar']; ?>"/></span></a>
 						</div>
 					</div>
 					<div class="header_content">
 						<div class="header_account">
-							<h2 class="header_account_name">itmo.megabattle</h2>
+							<h2 class="header_account_name"><?php echo $basics['account_name']; ?></h2>
 						</div>
 						<ul class="header_numbers">
 							<li class="header_number">
-								<span class="header_number_number">24</span> публикаций
+								<span class="header_number_number"><?php echo $basics['count1']; ?></span> <?php echo $basics['count1_name']; ?>
 							</li>
 							<li class="header_number">
-								<span class="header_number_number">1 161</span> подписчиков
+								<span class="header_number_number"><?php echo $basics['count2']; ?></span> <?php echo $basics['count2_name']; ?>
 							</li>
 							<li class="header_number">
-								<span class="header_number_number">5</span> подписок
+								<span class="header_number_number"><?php echo $basics['count3']; ?></span> <?php echo $basics['count3_name']; ?>
 							</li>
 						</ul>
 						<div class="header_description">
-							<h1 class="header_description_title">ITMO.MEGABATTLE</h1>
+							<h1 class="header_description_title"><?php echo $basics['account_name2']; ?></h1>
 							<br/>
-							<span>Делаем баттл, оставаясь семьей! ❤️ p.s. https://clck.ru/ThQD7</span>
+							<span><?php echo $basics['account_description']; ?></span>
 							<span class="header_description_followers">
-								<span class="header_description_followers_inner">Подписаны <span class="header_description_followers_follower">danyaisyourhomie</span>, <span class="header_description_followers_follower">wonder_liss</span>, <span class="header_description_followers_follower">elisasitnik</span> и ещё 64</span>
+								<span class="header_description_followers_inner">Подписаны <span class="header_description_followers_follower"><?php echo $basics['followers']; ?></span> и ещё <?php echo $basics['followers_num']; ?></span>
 							</span>
 						</div>
 					</div>

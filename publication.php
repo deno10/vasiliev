@@ -3,9 +3,11 @@ session_start();
 
 include_once('engine/connect.php');
 include('engine/uni-auth.php');
+include('engine/basic.php');
 
 $ThisPageName = 'posts';
 $link = $GLOBALS['mysql_oldstyle_link'];
+$basics = getbasics();
 
 if (!isset($_GET['id'])) header("Location: index.php");
 $eid = $_GET['id'];
@@ -22,7 +24,7 @@ if (!$row) header("Location: index.php");
 		<meta id="viewport" name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, viewport-fit=cover">
 		<link rel="preload" href="style.css" as="style">
 		<link rel="stylesheet" href="style.css">
-		<title>rektorkrut • Фото и видео в Instagram</title>
+		<title><?php echo $basics['account_name']; ?> • Фото и видео в Instagram</title>
 	</head>
 	<body>
 		<div class="nav_up">
@@ -81,14 +83,14 @@ if (!$row) header("Location: index.php");
 							<div class="bigpost_account_logo_outer">
 								<div class="bigpost_account_logo">
 									<a class="bigpost_account_logo_inner">
-										<img class="bigpost_account_logo_img" src="images/avatar.jpg"/>
+										<img class="bigpost_account_logo_img" src="<?php echo $basics['avatar']; ?>"/>
 									</a>
 								</div>
 							</div>
 							<div class="bigpost_account_name">
 								<div class="bigpost_account_name_inner">
 									<div class="bigpost_account_name_name">
-										<a class="bigpost_account_name_link" href="index.html">itmo.megabattle</a>
+										<a class="bigpost_account_name_link" href="index.html"><?php echo $basics['account_name']; ?></a>
 									</div>
 									<div class="bigpost_account_name_following">
 										<span class="bigpost_account_name_dot">•</span>
@@ -175,7 +177,7 @@ if (!$row) header("Location: index.php");
 													<div class="bigpost_descr_description_text_icon">
 														<div class="bigpost_descr_description_text_icon_wrapper">
 															<span class="bigpost_descr_description_text_icon_inner">
-																<img class="bigpost_descr_description_text_icon_img" src="images/avatar.jpg"/>
+																<img class="bigpost_descr_description_text_icon_img" src="<?php echo $basics['avatar']; ?>"/>
 															</span>
 														</div>
 													</div>
@@ -183,7 +185,7 @@ if (!$row) header("Location: index.php");
 														<h2 class="bigpost_descr_description_text_account_outer">
 															<div class="bigpost_descr_description_text_account">
 																<span class="bigpost_descr_description_text_account_inner">
-																	<a class="bigpost_descr_description_text_account_link" href="index.html">itmo.megabattle</a>
+																	<a class="bigpost_descr_description_text_account_link" href="index.html"><?php echo $basics['account_name']; ?></a>
 																</span>
 															</div>
 														</h2>

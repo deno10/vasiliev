@@ -74,7 +74,7 @@ $result = mysqli_query($link, "SELECT * FROM `posts` ORDER BY `id` DESC;") or di
 				<div class="header">
 					<div class="avatar">
 						<div class="avatar_inner">
-						<a href="story.html"><span class="avatar_span" style="width: 150px; height: 150px;"><img class="avatar_image" src="<?php echo $basics['avatar']; ?>"/></span></a>
+						<a href="stories.php"><span class="avatar_span" style="width: 150px; height: 150px;"><img class="avatar_image" src="<?php echo $basics['avatar']; ?>"/></span></a>
 						</div>
 					</div>
 					<div class="header_content">
@@ -112,58 +112,29 @@ $result = mysqli_query($link, "SELECT * FROM `posts` ORDER BY `id` DESC;") or di
 				</div>
 				<div class="stories">
 					<div class="stories_inner">
-						<div class="stories_inner2">
+						<?php $cstories = mysqli_query($link, "SELECT COUNT(*) FROM `pins` WHERE `alias` NOT IN ('default');") or die (mysqli_error($link));
+						mysqli_data_seek($cstories, 0);
+						$numstories = mysqli_fetch_row($cstories)[0]; ?>
+						<div class="stories_inner2<?php if ($numstories > 7) echo(' stories_inner2_wide'); ?>">
 							<div class="stories_content">
 								<ul class="stories_content_inner">
 									<li class="filler"></li>
+									<?php $rstories = mysqli_query($link, "SELECT * FROM `pins` WHERE `alias` NOT IN ('default');") or die (mysqli_error($link));
+									while ($strow = mysqli_fetch_array($rstories, MYSQLI_ASSOC)) {
+									?>
 									<li class="stories_story_outer">
 										<div class="stories_story">
-											<div class="stories_story_inner">
+											<a class="stories_story_link" href="stories.php?pin=<?php echo $strow['id']; ?>"><div class="stories_story_inner">
 												<div class="stories_story_img">
 													<div class="stories_story_img_inner">
-														<img class="stories_story_image" src="images/story.jpg"/>
+														<img class="stories_story_image" src="uploads/<?php echo $strow['image']; ?>"/>
 													</div>
 												</div>
-												<div class="stories_story_name">Intro Days</div>
-											</div>
+												<div class="stories_story_name"><?php echo $strow['name']; ?></div>
+											</div></a>
 										</div>
 									</li>
-									<li class="stories_story_outer">
-										<div class="stories_story">
-											<div class="stories_story_inner">
-												<div class="stories_story_img">
-													<div class="stories_story_img_inner">
-														<img class="stories_story_image" src="images/story2.jpg"/>
-													</div>
-												</div>
-												<div class="stories_story_name">Выезд актива</div>
-											</div>
-										</div>
-									</li>
-									<li class="stories_story_outer">
-										<div class="stories_story">
-											<div class="stories_story_inner">
-												<div class="stories_story_img">
-													<div class="stories_story_img_inner">
-														<img class="stories_story_image" src="images/story3.jpg"/>
-													</div>
-												</div>
-												<div class="stories_story_name">Эстафета</div>
-											</div>
-										</div>
-									</li>
-									<li class="stories_story_outer">
-										<div class="stories_story">
-											<div class="stories_story_inner">
-												<div class="stories_story_img">
-													<div class="stories_story_img_inner">
-														<img class="stories_story_image" src="images/story4.jpg"/>
-													</div>
-												</div>
-												<div class="stories_story_name">Выезд МБ</div>
-											</div>
-										</div>
-									</li>
+									<?php } ?>
 								</ul>
 							</div>
 						</div>

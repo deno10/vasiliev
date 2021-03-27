@@ -44,7 +44,7 @@ $link = $GLOBALS['mysql_oldstyle_link'];
 						if (msg.error == '') {
 							$("#js-file").hide();
 							$('#result').html('<img src="uploads/'+msg.url+'" style="max-height: 150px;"/>');
-							$('.imageurl').attr("value", msg.url_original);
+							$('.imageurl').attr("value", msg.url);
 							$("#tr_oldimage").hide();
 						} else {
 							$('#result').html(msg.error);
@@ -241,7 +241,7 @@ if (!USER_LOGGED) $UserRole = 63;
 			<td><?php echo $row['id']; ?></td>
 			<td><?php echo $row['alias']; ?></td>
 			<td><?php echo $row['name']; ?></td>
-			<td><img src="uploads/<?php echo $row['image']; ?>" style="max-width:150px; border-radius: 50%;"></td>
+			<td><img src="uploads/<?php echo $row['image']; ?>" style="width:120px; height: 120px; border-radius: 50%;"></td>
 		</tr>
 		<?php
 		}		

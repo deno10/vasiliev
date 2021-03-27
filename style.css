@@ -96,6 +96,22 @@ ol, ul {
 		font: inherit;
 	}
 	
+	div.stories_inner2_wide {
+		padding-bottom: 1.2em !important;
+		scrollbar-width: thin !important;
+	}
+	
+	div.stories_inner2_wide::-webkit-scrollbar {
+		height: 7px !important;
+		background: #f0f0f0;
+	}
+	div.stories_inner2_wide::-webkit-scrollbar-thumb {
+		background: #cdcdcd;
+	}
+	div.stories_inner2_wide::-webkit-scrollbar-thumb:hover {
+		background: #a6a6a6;
+	}
+	
 	/*post.html*/
 	div.bigpost_content {
 		justify-content: normal;
@@ -300,6 +316,10 @@ div.stories_story {
 	display: flex;
 	flex-direction: column;
 	position: relative;
+}
+
+a.stories_story_link, a.stories_story_link:visited {
+	color: inherit;
 }
 
 div.stories_story_inner {

@@ -15,6 +15,9 @@ $result = mysqli_query($link, "SELECT * FROM `stories` WHERE `pin`='$pin'") or d
 $row = mysqli_fetch_array($result, MYSQLI_ASSOC);
 if (!$row) header("Location: index.php");
 
+$firstvideo = $row['video'];
+$firstposter = $row['image'];
+
 ?>
 
 <!doctype html>
@@ -23,9 +26,22 @@ if (!$row) header("Location: index.php");
 		<meta charset="utf-8">
 		<meta id="viewport" name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, viewport-fit=cover">
 		<link rel="preload" href="story.css" as="style" type="text/css">
+		<script src="../js/jquery-3.6.0.min.js" language="javascript" type="text/javascript"></script>
 		<link rel="preload" href="story.js" as="script" type="text/javascript">
 		<link rel="stylesheet" href="story.css" type="text/css">
 		<script src="story.js"></script>
+		<script language="javascript" type="text/javascript">
+		<?php 
+		$cstories = mysqli_query($link, "SELECT COUNT(*) FROM `stories` WHERE `pin`='$pin';") or die (mysqli_error($link));
+		mysqli_data_seek($cstories, 0);
+		$numstories = mysqli_fetch_row($cstories)[0]; ?>
+		numstories = <?php echo $numstories; ?>;
+		<?php
+		do {
+			echo ("videolinks.push("."'".$row['video'] ."');"."\n");
+		} while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC));
+		?>
+		</script>
 		<title>Истории • Instagram</title>
 	</head>
 	<body onload="funonload();">
@@ -43,8 +59,8 @@ if (!$row) header("Location: index.php");
 										<div class="story_video_inner">
 											<div class="story_video_loading"></div>
 											<img class="story_video_image" src=""/>
-											<video class="story_video" preload="auto" playsinline="" poster="" autoplay="autoplay" muted="muted">
-												<source src="videos/105837441_352999962653879_62771921778965706_n.mp4">
+											<video class="story_video" preload="auto" playsinline="" poster="uploads/<?php echo $firstposter; ?>" autoplay="autoplay" muted="muted">
+												<source id="storysource" src="uploads/<?php echo $firstvideo; ?>">
 											</video>
 											<div class="story_video_mobnavigation">
 												<div class="story_video_mobnavigation_outer">
@@ -64,17 +80,19 @@ if (!$row) header("Location: index.php");
 								</div>
 								<div class="story_header">
 									<div class="story_header_bar">
-										<div class="story_header_bar_part">
+										<div class="story_header_bar_part" id="story0">
 											<div class="story_header_bar_part_grey"></div>
-											<div class="story_header_bar_part_white" style="width: 100%;"></div>
+											<div class="story_header_bar_part_white story_header_bar_part_current" style="width: 0%;"></div>
 										</div>
-										<div class="story_header_bar_part">
+										<?php 
+											for ($i = 1; $i < $numstories; $i++) {
+										?>
+										<div class="story_header_bar_part" id="story<?php echo $i; ?>">
 											<div class="story_header_bar_part_grey"></div>
-											<div class="story_header_bar_part_white story_header_bar_part_current"></div>
 										</div>
-										<div class="story_header_bar_part">
-											<div class="story_header_bar_part_grey"></div>
-										</div>
+										<?php
+											}
+										?>
 									</div>
 									<div class="story_header_content">
 										<div class="story_header_content_account">
@@ -96,7 +114,7 @@ if (!$row) header("Location: index.php");
 											<button class="story_header_content_icons_play" type="button">
 												<div class="story_header_content_icons_play_inner">
 													<svg class="story_header_content_icons_play_svg" fill="#ffffff" height="16" width="16" viewBox="0 0 48 48">
-													<path d="M9.6 46.5c-1 0-2-.3-2.9-.8-1.8-1.1-2.9-2.9-2.9-5.1V7.3c0-2.1 1.1-4 2.9-5.1 1.9-1.1 4.1-1.1 5.9 0l30.1 17.6c1.5.9 2.3 2.4 2.3 4.1 0 1.7-.9 3.2-2.3 4.1L12.6 45.7c-.9.5-2 .8-3 .8z"></path>
+													<path d="M15 1c-3.3 0-6 1.3-6 3v40c0 1.7 2.7 3 6 3s6-1.3 6-3V4c0-1.7-2.7-3-6-3zm18 0c-3.3 0-6 1.3-6 3v40c0 1.7 2.7 3 6 3s6-1.3 6-3V4c0-1.7-2.7-3-6-3z"></path>
 													</svg>
 												</div>
 											</button>

@@ -38,7 +38,7 @@ if (!$row) header("Location: index.php");
 			<div class="nav_up_inner">
 				<div class="nav_up_content">
 					<div class="nav_up_logo">
-						<a href="#">
+						<a href="index.php">
 							<div class="nav_up_logo_wrapper">
 								<div class="nav_up_logo_inner">
 									<img class="nav_up_logo_img" src="images/itmogram.png"/>

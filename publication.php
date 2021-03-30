@@ -251,7 +251,19 @@ if (!$row) header("Location: index.php");
 								</span>
 							</a>
 						</div>
-						<h1 class="navup_mobile_caption"><?php echo(($row['type'] == 'image') ? 'Фото' : 'Видео'); ?></h1>
+						<h1 class="navup_mobile_caption"><?php
+						switch ($row['type']) {
+							case 'image':
+								echo "Фото";
+								break;
+							case 'carousel':
+								echo "Публикация";
+								break;
+							case 'video':
+								echo "Видео";
+								break;
+						}
+						?></h1>
 						<div class="navup_mobile_filler"></div>
 					</div>
 				</div>

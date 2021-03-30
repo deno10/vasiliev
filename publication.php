@@ -28,6 +28,9 @@ if (!$row) header("Location: index.php");
 		<script src="js/jquery-3.6.0.min.js" language="javascript" type="text/javascript"></script>
 		<script defer src="https://unpkg.com/smoothscroll-polyfill@0.4.4/dist/smoothscroll.min.js"></script>
 		<script src="carousel.js" language="javascript" type="text/javascript"></script>
+		<script language="javascript" type="text/javascript">
+		numpictures = <?php echo count(json_decode($row['url'])); ?>;
+		</script>
 		<?php } ?>
 		<link rel="stylesheet" href="style.css">
 		<title><?php echo $basics['account_name']; ?> • Фото и видео в ITMOgram</title>

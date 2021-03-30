@@ -50,7 +50,7 @@ $link = $GLOBALS['mysql_oldstyle_link'];
 							}
 						}
 					});
-				} else {
+				} else if ($('input[name=mediatype]:checked').val() == "video") {
 					var formData = new FormData();
 					formData.append('file', $("#js-file")[0].files[0]);
 					$('#result').html('<img src="img/loading.gif"/>');
@@ -77,7 +77,67 @@ $link = $GLOBALS['mysql_oldstyle_link'];
 							}
 						}
 					});
+				} else {
+					var formData = new FormData();
+					formData.append('file', $("#js-file")[0].files[0]);
+					$('#result').html('<img src="img/loading.gif"/>');
+					$.ajax({
+						type: "POST",
+						url: '/img_upload.php',
+						cache: false,
+						contentType: false,
+						processData: false,
+						data: formData,
+						dataType : 'json',
+						success: function(msg){
+							if (msg.error == '') {
+								$("#js-file").hide();
+								$('#result').html('<img src="uploads/'+msg.url+'" style="max-height: 250px;"/>');
+								$('#url').attr("value", msg.url);
+								$('#url').attr("readonly", "readonly");
+								$('#url_original').attr("value", msg.url_original);
+								$('#url_original').attr("readonly", "readonly");
+								$('#ratio').attr("value", msg.ratio);
+								$('#type').attr("value", "carousel");
+								
+								$('#mediatd').append('<br/><input type="file" id="js-file1" onChange="carouselupload(1);"></input><div id="result1">');
+							} else {
+								$('#result').html(msg.error);
+							}
+						}
+					});
 				}
+			}
+		}
+		function carouselupload(imgnum){
+			if (window.FormData === undefined) {
+				alert('В вашем браузере FormData не поддерживается')
+			} else {
+				var formData = new FormData();
+				formData.append('file', $("#js-file" + imgnum)[0].files[0]);
+				$('#result' + imgnum).html('<img src="img/loading.gif"/>');
+				$.ajax({
+					type: "POST",
+					url: '/img_upload.php',
+					cache: false,
+					contentType: false,
+					processData: false,
+					data: formData,
+					dataType : 'json',
+					success: function(msg){
+						if (msg.error == '') {
+							$("#js-file" + imgnum).hide();
+							$('#result' + imgnum).html('<img src="uploads/'+msg.url+'" style="max-height: 250px;"/>');
+							$('#mediaurl').append('<br/><input type=text name=url' + (imgnum) + ' id="url' + (imgnum) + '" value="" required=required></input>');
+							$('#url' + imgnum).attr("value", msg.url);
+							$('#url' + imgnum).attr("readonly", "readonly");
+							
+							$('#mediatd').append('<br/><input type="file" id="js-file' + (imgnum + 1) + '" onChange="carouselupload(' + (imgnum + 1) + ');"></input><div id="result' + (imgnum + 1) + '">');
+						} else {
+							$('#result').html(msg.error);
+						}
+					}
+				});
 			}
 		}
 		</script>
@@ -272,7 +332,17 @@ if (!USER_LOGGED) $UserRole = 63;
 			</td>
 			<td><?php echo $row['id']; ?></td>
 			<td><?php echo $row['date']; ?></td>
-			<td><img src="uploads/<?php echo $row['url']; ?>" style= "max-height: 200px;"/><?php if ($row['type'] == 'video') echo '<br/>Кадр из видео (превью)'?></td>
+			<td>
+				<?php
+				if ($row['type'] == 'carousel') {
+					$urlarray = json_decode($row['url']);
+					foreach ($urlarray as &$tURL) { ?>
+				<img src="uploads/<?php echo $tURL; ?>" style="max-height:200px;"/><br/>
+				<?php	}
+				} else {
+				?>
+				<img src="uploads/<?php echo $row['url']; ?>" style="max-height: 200px;"/><?php if ($row['type'] == 'video') echo '<br/>Кадр из видео (превью)'; }?>
+			</td>
 			<td><a href="uploads/<?php echo $row['url_original']; ?>">link...</a></td>
 			<td><?php echo $row['description']; ?></td>
 			<td><?php echo $row['liked_by']; ?></td>

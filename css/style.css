@@ -29,7 +29,7 @@ table.whitebox-table-secondcenter tr td:nth-child(2) {text-align: center;}
 
 table.edittable tr td input, table.edittable tr td select, table.edittable tr td textarea {padding: 0.4em; margin: 0.3em; width: 98%;}
 table.edittable tr td .submitbutton {width: auto; padding: 0.5em 2em;}
-table.edittable tr td #mediatype, table.edittable tr td #mediatype2 {width: auto;}
+table.edittable tr td #mediatype, table.edittable tr td #mediatype2, table.edittable tr td #mediatype3 {width: auto;}
 table.edittable tr td:first-child {text-align: right;}
 
 table.register-table {max-width: 75%;}

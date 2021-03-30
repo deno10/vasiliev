@@ -132,15 +132,15 @@ if ($_POST["action"] == "showadd" && $paccess) {
 <table class=edittable>
 <tr>
 	<td>Тип:</td>
-	<td><input name="mediatype" id="mediatype" type="radio" value="image" checked=checked> Изображение<br/><input name="mediatype" id="mediatype2" type="radio" value="video"> Видео</td>
+	<td><input name="mediatype" id="mediatype" type="radio" value="image" checked=checked> Изображение<br/><input name="mediatype" id="mediatype2" type="radio" value="video"> Видео<br/><input name="mediatype" id="mediatype3" type="radio" value="carousel"> Карусель</td>
 </tr>
 <tr>
 	<td>Медиафайл:</td>
-	<td><input type="file" id="js-file" onChange="imgupload();"></input><div id="result"></div></td>
+	<td id="mediatd"><input type="file" id="js-file" onChange="imgupload();"></input><div id="result"></div></td>
 </tr>
 <tr>
 	<td>URL:</td>
-	<td><input type=text name=url id="url" value="" required=required></input></td>
+	<td id="mediaurl"><input type=text name=url id="url" value="" required=required></input></td>
 </tr>
 <tr>
 	<td>URL оригинала:</td>
@@ -177,6 +177,16 @@ if ($_POST["action"] == "add" && $paccess) {
 	$liked_by = NULL;
 	if ($_POST["liked_by"])
 		$liked_by = $_POST["liked_by"];
+	
+	if ($type == "carousel") {
+		$urlnew = array($url);
+		$i = 1;
+		while (isset($_POST["url" . $i])) {
+			array_push($urlnew, $_POST["url" . $i]);
+			$i = $i + 1;
+		}
+		$url = json_encode($urlnew);
+	}
 
 	$result = mysqli_query($link, "INSERT INTO `posts` (`url`, `url_original`, `date`, `description`, `liked_by`, `ratio`, `type`) VALUES ('$url', '$url_original', '$date', '$description', '$liked_by', '$ratio', '$type');") or die (mysqli_error($link));
 	

@@ -504,6 +504,15 @@ div.post_mediatype {
 	display: block;
 }
 
+.post_mediatype_carousel {
+	background-position: 0 0px;
+	background-repeat: no-repeat;
+	background-image: url('images/mediatypes.png');
+	height: 32px;
+	width: 32px;
+	display: block;
+}
+
 div.nav_up {
 	-webkit-box-ordinal-group: 1;
 	order: 0;

@@ -23,10 +23,16 @@ if (!$row) header("Location: index.php");
 		<meta charset="utf-8">
 		<meta id="viewport" name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, viewport-fit=cover">
 		<link rel="preload" href="style.css" as="style">
+		<?php if ($row['type'] == 'carousel') { ?>
+		<link rel="preload" href="carousel.js" as="script" type="text/javascript">
+		<script src="js/jquery-3.6.0.min.js" language="javascript" type="text/javascript"></script>
+		<script defer src="https://unpkg.com/smoothscroll-polyfill@0.4.4/dist/smoothscroll.min.js"></script>
+		<script src="carousel.js" language="javascript" type="text/javascript"></script>
+		<?php } ?>
 		<link rel="stylesheet" href="style.css">
 		<title><?php echo $basics['account_name']; ?> • Фото и видео в Instagram</title>
 	</head>
-	<body>
+	<body<?php if ($row['type'] == 'carousel') echo(' onload="funonload();"'); ?>>
 		<div class="nav_up">
 			<div class="nav_up_filler"></div>
 			<div class="nav_up_inner">
@@ -117,7 +123,26 @@ if (!$row) header("Location: index.php");
 												</div>
 											</div>
 									</div>
-								</div><?php } else die('Контент неизвестного типа') ?>
+								</div><?php } elseif ($row['type'] == 'carousel') { ?>
+								<div class="bigpost_media_outer bigpost_carousel_outer">
+								<?php
+								$url = json_decode($row['url']);
+								foreach($url as &$tURL) {
+								?>
+									<div class="bigpost_media_inner bigpost_carousel_inner">
+										<img class="bigpost_media_img" src="uploads/<?php echo $tURL; ?>"/>
+									</div>
+								<?php
+								}
+								?>
+								</div>
+								<button class="bigpost_carousel_leftbutton" style="display: none;">
+									<div class="bigpost_carousel_leftbutton_inner"></div>
+								</button>
+								<button class="bigpost_carousel_rightbutton">
+									<div class="bigpost_carousel_rightbutton_inner"></div>
+								</button>
+								<?php } else die('Контент неизвестного типа'); ?>
 							</div>
 						</div>
 						<div class="bigpost_description">

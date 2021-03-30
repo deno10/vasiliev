@@ -206,11 +206,11 @@ $result = mysqli_query($link, "SELECT * FROM `posts` ORDER BY `id` DESC;") or di
 									<a href="publication.php?id=<?php echo $row['id']; ?>">
 										<div class="post">
 											<div class="post_inner">
-												<img class="post_img" src="uploads/<?php echo $row['url']; ?>"/>
+												<img class="post_img" src="uploads/<?php echo ($row['type'] == 'carousel') ? $row['url_original'] : $row['url']; ?>"/>
 											</div>
 										</div>
-										<?php if ($row['type'] == 'video') { ?><div class="post_mediatype">
-											<span class="post_mediatype_video"></span>
+										<?php if ($row['type'] != 'image') { ?><div class="post_mediatype">
+											<span class="post_mediatype_<?php echo $row['type']; ?>"></span>
 										</div><?php } ?>
 									</a> <?php } $row = mysqli_fetch_array($result, MYSQLI_ASSOC); ?>
 								</div>
@@ -218,11 +218,11 @@ $result = mysqli_query($link, "SELECT * FROM `posts` ORDER BY `id` DESC;") or di
 									<a href="publication.php?id=<?php echo $row['id']; ?>">
 										<div class="post">
 											<div class="post_inner">
-												<img class="post_img" src="uploads/<?php echo $row['url']; ?>"/>
+												<img class="post_img" src="uploads/<?php echo ($row['type'] == 'carousel') ? $row['url_original'] : $row['url']; ?>"/>
 											</div>
 										</div>
-										<?php if ($row['type'] == 'video') { ?><div class="post_mediatype">
-											<span class="post_mediatype_video"></span>
+										<?php if ($row['type'] != 'image') { ?><div class="post_mediatype">
+											<span class="post_mediatype_<?php echo $row['type']; ?>"></span>
 										</div><?php } ?>
 									</a> <?php } $row = mysqli_fetch_array($result, MYSQLI_ASSOC); ?>
 								</div>
@@ -230,11 +230,11 @@ $result = mysqli_query($link, "SELECT * FROM `posts` ORDER BY `id` DESC;") or di
 									<a href="publication.php?id=<?php echo $row['id']; ?>">
 										<div class="post">
 											<div class="post_inner">
-												<img class="post_img" src="uploads/<?php echo $row['url']; ?>"/>
+												<img class="post_img" src="uploads/<?php echo ($row['type'] == 'carousel') ? $row['url_original'] : $row['url']; ?>"/>
 											</div>
 										</div>
-										<?php if ($row['type'] == 'video') { ?><div class="post_mediatype">
-											<span class="post_mediatype_video"></span>
+										<?php if ($row['type'] != 'image') { ?><div class="post_mediatype">
+											<span class="post_mediatype_<?php echo $row['type']; ?>"></span>
 										</div><?php } ?>
 									</a> <?php } ?>
 								</div>

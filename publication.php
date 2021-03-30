@@ -30,7 +30,7 @@ if (!$row) header("Location: index.php");
 		<script src="carousel.js" language="javascript" type="text/javascript"></script>
 		<?php } ?>
 		<link rel="stylesheet" href="style.css">
-		<title><?php echo $basics['account_name']; ?> • Фото и видео в Instagram</title>
+		<title><?php echo $basics['account_name']; ?> • Фото и видео в ITMOgram</title>
 	</head>
 	<body<?php if ($row['type'] == 'carousel') echo(' onload="funonload();"'); ?>>
 		<div class="nav_up">
@@ -41,7 +41,7 @@ if (!$row) header("Location: index.php");
 						<a href="#">
 							<div class="nav_up_logo_wrapper">
 								<div class="nav_up_logo_inner">
-									<img class="nav_up_logo_img" src="images/instagram.png"/>
+									<img class="nav_up_logo_img" src="images/itmogram.png"/>
 								</div>
 							</div>
 						</a>

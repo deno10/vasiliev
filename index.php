@@ -18,7 +18,7 @@ $result = mysqli_query($link, "SELECT * FROM `posts` ORDER BY `id` DESC;") or di
 		<meta id="viewport" name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, viewport-fit=cover">
 		<link rel="preload" href="style.css" as="style">
 		<link rel="stylesheet" href="style.css">
-		<title><?php echo $basics['account_name']; ?> • Фото и видео в Instagram</title>
+		<title><?php echo $basics['account_name']; ?> • Фото и видео в ITMOgram</title>
 	</head>
 	<body>
 		<div class="nav_up">

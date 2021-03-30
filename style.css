@@ -1191,6 +1191,78 @@ div.navup_mobile, div.header_description_mobile, .header_numbers_mobile, div.nav
 	display: none;
 }
 
+div.bigpost_carousel_outer {
+	overflow-x: auto;
+	scroll-snap-type: x mandatory;
+	display: flex;
+	flex-direction: row;
+	flex: none;
+	scrollbar-width: none;
+}
+
+div.bigpost_carousel_outer::-webkit-scrollbar {
+	display: none;
+}
+
+div.bigpost_carousel_inner {
+	width: 100%;
+	flex: none;
+	scroll-snap-align: start;
+}
+
+.bigpost_carousel_leftbutton {
+	left: 0;
+	cursor: pointer;
+	background: 0 0;
+	border: 0;
+	justify-self: center;
+	outline: 0;
+	padding: 16px 8px;
+	position: absolute;
+	top: 50%;
+	transform: translateY(-50%);
+}
+
+.bigpost_carousel_rightbutton {
+	right: 0;
+	cursor: pointer;
+	background: 0 0;
+	border: 0;
+	justify-self: center;
+	outline: 0;
+	padding: 16px 8px;
+	position: absolute;
+	top: 50%;
+	transform: translateY(-50%);
+}
+
+div.bigpost_carousel_leftbutton_inner {
+	background-position: -130px -98px;
+	height: 30px;
+	width: 30px;
+	background-repeat: no-repeat;
+	background-image: url('images/sprites.png');
+	align-items: stretch;
+	box-sizing: border-box;
+	display: flex;
+	flex-direction: column;
+	position: relative;
+}
+
+div.bigpost_carousel_rightbutton_inner {
+	background-position: -162px -98px;
+	height: 30px;
+	width: 30px;
+	background-repeat: no-repeat;
+	background-image: url('images/sprites.png');
+	align-items: stretch;
+	box-sizing: border-box;
+	display: flex;
+	flex-direction: column;
+	position: relative;
+}
+
+
 @media (max-device-width: 812px) and (orientation: portrait), (max-width: 735px) {
 	div.nav_up {
 		display: none;

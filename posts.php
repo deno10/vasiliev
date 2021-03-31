@@ -24,7 +24,7 @@ $link = $GLOBALS['mysql_oldstyle_link'];
 			if (window.FormData === undefined) {
 				alert('В вашем браузере FormData не поддерживается')
 			} else {
-				if ($('input[name=mediatype]:checked').val() == "image") {
+				if (($('input[name=mediatype]:checked').val() == "image") || ($('#edittype').attr("value") == "image")) {
 					var formData = new FormData();
 					formData.append('file', $("#js-file")[0].files[0]);
 					$('#result').html('<img src="img/loading.gif"/>');
@@ -39,6 +39,7 @@ $link = $GLOBALS['mysql_oldstyle_link'];
 						success: function(msg){
 							if (msg.error == '') {
 								$("#js-file").hide();
+								$("#currentimg").hide();
 								$('#result').html('<img src="uploads/'+msg.url+'" style="max-height: 300px;"/>');
 								$('#url').attr("value", msg.url);
 								$('#url').attr("readonly", "readonly");
@@ -100,7 +101,7 @@ $link = $GLOBALS['mysql_oldstyle_link'];
 								$('#ratio').attr("value", msg.ratio);
 								$('#type').attr("value", "carousel");
 								
-								$('#mediatd').append('<br/><input type="file" id="js-file1" onChange="carouselupload(1);"></input><div id="result1">');
+								$('#mediatd').append('<br/><input type="file" id="js-file1" onChange="carouselupload(1);"></input><div id="result1"></div>');
 							} else {
 								$('#result').html(msg.error);
 							}
@@ -132,7 +133,45 @@ $link = $GLOBALS['mysql_oldstyle_link'];
 							$('#url' + imgnum).attr("value", msg.url);
 							$('#url' + imgnum).attr("readonly", "readonly");
 							
-							$('#mediatd').append('<br/><input type="file" id="js-file' + (imgnum + 1) + '" onChange="carouselupload(' + (imgnum + 1) + ');"></input><div id="result' + (imgnum + 1) + '">');
+							$('#mediatd').append('<br/><input type="file" id="js-file' + (imgnum + 1) + '" onChange="carouselupload(' + (imgnum + 1) + ');"></input><div id="result' + (imgnum + 1) + '"></div>');
+						} else {
+							$('#result').html(msg.error);
+						}
+					}
+				});
+			}
+		}
+		
+		function carouselreupload(imgnum){
+			if (window.FormData === undefined) {
+				alert('В вашем браузере FormData не поддерживается')
+			} else {
+				var formData = new FormData();
+				formData.append('file', $("#js-file" + imgnum)[0].files[0]);
+				$('#result' + imgnum).html('<img src="img/loading.gif"/>');
+				$.ajax({
+					type: "POST",
+					url: '/img_upload.php',
+					cache: false,
+					contentType: false,
+					processData: false,
+					data: formData,
+					dataType : 'json',
+					success: function(msg){
+						if (msg.error == '') {
+							//$("#js-file" + imgnum).hide();
+							$('#result' + imgnum).html('');
+							//$('#result' + imgnum).html('<img src="uploads/'+msg.url+'" style="max-height: 250px;"/>');
+							$('#thisimg' + imgnum).attr("src", "uploads/"+msg.url);
+							//$('#mediaurl').append('<br/><input type=text name=url' + (imgnum) + ' id="url' + (imgnum) + '" value="" required=required></input>');
+							if (imgnum == 0) {
+								imgnum = "";
+								$('#url_original').attr("value", msg.url_original);
+							}
+							$('#url' + imgnum).attr("value", msg.url);
+							$('#url' + imgnum).attr("readonly", "readonly");
+							
+							//$('#mediatd').append('<br/><input type="file" id="js-file' + (imgnum + 1) + '" onChange="carouselupload(' + (imgnum + 1) + ');"></input><div id="result' + (imgnum + 1) + '"></div>');
 						} else {
 							$('#result').html(msg.error);
 						}
